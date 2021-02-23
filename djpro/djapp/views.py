@@ -1,12 +1,20 @@
 from django.shortcuts import render, redirect
-from .forms import userForm, userInfoForm
+from .forms import userForm, userInfoForm, userInfoUpdateForm
 from .models import userInfo, User
 from django.contrib.auth import authenticate, login, logout
 
 
 def home(request):
 
-    return render(request, 'home.html')
+    context = {}
+
+    if request.user.is_authenticated:
+        current_user = request.user
+        current_user_info = userInfo.objects.get(member_id=current_user.id)
+        context = {'current_user': current_user,
+                   'current_user_info': current_user_info}
+
+    return render(request, 'home.html', context)
 
 
 def signup(request):
@@ -66,3 +74,57 @@ def signin(request):
 def signout(request):
     logout(request)
     return redirect('home')
+
+
+def profile(request, pk):
+    current_user = User.objects.get(id=pk)
+    current_user_info = userInfo.objects.get(member_id=pk)
+
+    context = {'current_user': current_user,
+               'current_user_info': current_user_info}
+    return render(request, 'user/profile.html', context)
+
+
+def update(request, pk):
+    current_user = User.objects.get(id=pk)
+    form = userForm(instance=current_user)
+
+    current_user_info = userInfo.objects.get(member_id=pk)
+    Object = current_user_info
+    info_form = userInfoForm(instance=current_user_info)
+
+    if request.POST:
+
+        formUpdate = userInfoUpdateForm(
+            request.POST, request.FILES, instance=current_user_info)
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+
+        flag = True
+
+        if User.objects.filter(username=username).exists():
+            if User.objects.get(username=username).id == pk:
+                flag = False
+
+        if formUpdate.is_valid() and flag:
+            current_user.username = username
+            current_user.email = email
+            current_user.save()
+
+            obj = formUpdate.save(commit=False)
+            obj.save()
+
+            info_form = obj
+            return redirect('home')
+
+        else:
+            error = "Username already Exists, try something else"
+
+            context = {'form': form, 'info_form': info_form,
+                       'error': error, 'Object': Object}
+            return render(request, 'user/update.html', context)
+
+    info_form = userInfoUpdateForm(instance=current_user_info)
+
+    context = {'form': form, 'info_form': info_form, 'Object': Object}
+    return render(request, 'user/update.html', context)

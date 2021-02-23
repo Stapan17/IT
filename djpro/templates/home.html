@@ -16,15 +16,30 @@
     <a href="#">Manage Post</a>
     <a href="#">Contact us</a>
     <a href="#">Admin</a>
-    <a href="{% url 'signup' %}">Sign up</a>
-    <a href="{% url 'signin' %}">Sign in</a>
-
-    <a href="{% url 'reset_password' %}">Forgot Password</a>
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'signout' %}">Log out</a>
-    {% endif %}
 
+    {% if current_user_info.profile_pic %}
+
+    <a href="{% url 'profile' current_user.id %}">
+
+        <img src="{{current_user_info.profile_pic.url}}" style="height: 15px; width: auto;" alt="">
+        {{current_user.username}}</a>
+
+    {% else %}
+
+    <a href="{% url 'profile' current_user.id %}">{{current_user.username}}</a>
+
+    {% endif %}
+    <a href="{% url 'signout' %}">Log out</a>
+
+    {% else %}
+
+    <a href="{% url 'signup' %}">Sign up</a>
+    <a href="{% url 'signin' %}">Sign in</a>
+    <a href="{% url 'reset_password' %}">Forgot Password</a>
+
+    {% endif %}
 </body>
 
 </html>

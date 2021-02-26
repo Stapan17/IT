@@ -12,12 +12,12 @@
     <h1>ONLINE JOB PORTAL</h1>
 
     <a href="#">Home</a>
-    <a href="#">Job Post</a>
-    <a href="#">Manage Post</a>
     <a href="#">Contact us</a>
     <a href="#">Admin</a>
 
     {% if request.user.is_authenticated %}
+    <a href="{% url 'job_post' %}">Job Post</a>
+    <a href="{% url 'manage_post' current_user.id %}">Manage Post</a>
 
     {% if current_user_info.profile_pic %}
 
@@ -40,6 +40,24 @@
     <a href="{% url 'reset_password' %}">Forgot Password</a>
 
     {% endif %}
+
+    <br>
+    <br>
+    <br><br>
+
+    {% for object in objects %}
+    {{object.company}}
+    {{object.position}}
+    {{object.location}}
+    {{object.salaryL}}
+    {{object.salaryH}}
+    {{object.min_exp}}
+    {{object.description}}
+    {{object.resume}}
+    {{object.category}}
+    <br><br>
+    {% endfor %}
+
 </body>
 
 </html>

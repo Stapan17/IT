@@ -12,6 +12,9 @@
 Username : {{ current_user.username }} <br>
 Email : {{ current_user.email }} <br>
 Name : {{ current_user_info.name }} <br>
-Phone : {{ current_user_info.phone }} <br> <br>
 
+
+{% if request.user.id == current_user.id %}
+Phone : {{ current_user_info.phone }} <br> <br>
 <a href="{% url 'update' current_user.id %}">Update</a>
+{% endif %}

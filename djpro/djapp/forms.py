@@ -1,6 +1,14 @@
 from django import forms
-from .models import userInfo
+from .models import userInfo, Category, jobPost
 from django.contrib.auth.models import User
+
+
+choices = Category.objects.all().values_list('name', 'name')
+
+choice_list = []
+
+for item in choices:
+    choice_list.append(item)
 
 
 class userForm(forms.ModelForm):
@@ -34,3 +42,15 @@ class userInfoUpdateForm(forms.ModelForm):
             user_info.save()
 
         return user_info
+
+
+class jobPostForm(forms.ModelForm):
+    class Meta():
+        model = jobPost
+        fields = ("company", "position", "location",
+                  "salaryL", "salaryH", "min_exp", "description", "resume", "category", "person")
+
+        widgets = {
+            "person": forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
+            "category": forms.Select(choices=choice_list, attrs={'class': 'form-control'})
+        }

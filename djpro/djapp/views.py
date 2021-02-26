@@ -1,18 +1,23 @@
 from django.shortcuts import render, redirect
-from .forms import userForm, userInfoForm, userInfoUpdateForm
-from .models import userInfo, User
+from .forms import userForm, userInfoForm, userInfoUpdateForm, jobPostForm
+from .models import userInfo, User, jobPost
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
 
+    objects = jobPost.objects.all()
     context = {}
 
     if request.user.is_authenticated:
         current_user = request.user
         current_user_info = userInfo.objects.get(member_id=current_user.id)
         context = {'current_user': current_user,
-                   'current_user_info': current_user_info}
+                   'current_user_info': current_user_info, 'objects': objects}
+
+    else:
+        context = {'objects': objects}
 
     return render(request, 'home.html', context)
 
@@ -121,10 +126,38 @@ def update(request, pk):
             error = "Username already Exists, try something else"
 
             context = {'form': form, 'info_form': info_form,
-                       'error': error, 'Object': Object}
+                       'error': error, 'Object': Object, 'current_user': current_user}
             return render(request, 'user/update.html', context)
 
     info_form = userInfoUpdateForm(instance=current_user_info)
 
-    context = {'form': form, 'info_form': info_form, 'Object': Object}
+    context = {'form': form, 'info_form': info_form,
+               'Object': Object, 'current_user': current_user}
     return render(request, 'user/update.html', context)
+
+
+def job_post(request):
+
+    if request.method == "POST":
+        form = jobPostForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('home')
+
+        else:
+            print("ERROR")
+            print(form.errors)
+
+    context = {'form': jobPostForm}
+    return render(request, 'job/postForm.html', context)
+
+
+@login_required(login_url='signup')
+def manage_post(request, pk):
+    curr_user = request.user
+    curr_user_post = jobPost.objects.filter(person_id=pk)
+
+    context = {'curr_user_post': curr_user_post}
+    return render(request, 'job/managePost.html', context)

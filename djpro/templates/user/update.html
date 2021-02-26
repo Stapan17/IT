@@ -1,3 +1,5 @@
+{% if request.user.id == current_user.id %}
+
 <h1>Update</h1>
 
 <form action="" method="POST" enctype="multipart/form-data">
@@ -25,7 +27,6 @@
 
             Currently:
 
-
             <img src="{{Object.profile_pic.url}}" style="height: 100px;" alt="">
             <input type="checkbox" name="profile_pic-clear" id="profile_pic-clear_id">
             <label for="profile_pic-clear_id">Clear</label><br>
@@ -42,3 +43,7 @@
     <input type="submit" value="Update">
 
 </form>
+
+{% else %}
+You are not allowed to view this page
+{% endif %}

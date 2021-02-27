@@ -12,7 +12,10 @@
     <h1>Manage Post</h1>
 
     {% for curr_post in curr_user_post %}
-    {{curr_post.category}}
+    {{curr_post.company}}
+
+    <a href="{% url 'update_post' curr_post.id %}">Update</a>
+    <a href="{% url 'delete_post' curr_post.id %}">Delete</a>
     <br><br>
     {% endfor %}
 </body>

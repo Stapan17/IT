@@ -154,10 +154,42 @@ def job_post(request):
     return render(request, 'job/postForm.html', context)
 
 
-@login_required(login_url='signup')
 def manage_post(request, pk):
     curr_user = request.user
     curr_user_post = jobPost.objects.filter(person_id=pk)
 
     context = {'curr_user_post': curr_user_post}
     return render(request, 'job/managePost.html', context)
+
+
+def error(request):
+    return render(request, 'error.html')
+
+
+def update_post(request, pk):
+    Object = jobPost.objects.get(id=pk)
+    form = jobPostForm(instance=Object)
+
+    if request.method == 'POST':
+        form_data = jobPostForm(request.POST, instance=Object)
+
+        if form_data.is_valid():
+            form_data.save()
+            return redirect('home')
+
+        else:
+            print(form_data.errors)
+
+    context = {'form': form}
+    return render(request, 'job/updatePost.html', context)
+
+
+def delete_post(request, pk):
+    Object = jobPost.objects.get(id=pk)
+
+    if request.method == 'POST':
+        Object.delete()
+        return redirect('home')
+
+    context = {'Object': Object}
+    return render(request, 'job/deletePost.html', context)

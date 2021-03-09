@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 
+def base(request):
+    return render(request, 'base.html')
+
+
 def home(request):
 
     objects = jobPost.objects.all()
@@ -150,15 +154,23 @@ def job_post(request):
             print("ERROR")
             print(form.errors)
 
-    context = {'form': jobPostForm}
+    curr_user = request.user
+    pk = curr_user.id
+    current_user = User.objects.get(id=pk)
+    current_user_info = userInfo.objects.get(member_id=pk)
+    context = {'form': jobPostForm, 'current_user': current_user,
+               'current_user_info': current_user_info}
     return render(request, 'job/postForm.html', context)
 
 
 def manage_post(request, pk):
     curr_user = request.user
+    current_user = User.objects.get(id=pk)
+    current_user_info = userInfo.objects.get(member_id=pk)
     curr_user_post = jobPost.objects.filter(person_id=pk)
 
-    context = {'curr_user_post': curr_user_post}
+    context = {'curr_user_post': curr_user_post,
+               'current_user': current_user, 'current_user_info': current_user_info}
     return render(request, 'job/managePost.html', context)
 
 

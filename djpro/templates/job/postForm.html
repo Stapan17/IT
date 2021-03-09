@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+<!--Title-->
+{% block title %}Job-Post{% endblock title %}
+<!--body block-->
+{% block body %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!--start block-->
+<h1>POST</h1>
 
-<body>
-    <h1>POST</h1>
+<form action="" method="POST">
+    {% csrf_token %} {{form}}
 
-    <form action="" method="POST">
+    <input type="submit" value="Post" />
+</form>
 
-        {% csrf_token %}
-
-        {{form}}
-
-        <input type="submit" value="Post">
-
-    </form>
-</body>
 <script>
-
     var name1 = "{{ user.id }}";
-    document.getElementById('elder').value = name1;
-
+    document.getElementById("elder").value = name1;
 </script>
 
-</html>
+<!--end block-->
+
+{% endblock body %}

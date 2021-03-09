@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+<!--Title-->
+{% block title %}Job-Post{% endblock title %}
+<!--body block-->
+{% block body %} {% for curr_post in curr_user_post %}
+{{curr_post.company}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Manage Post</h1>
-
-    {% for curr_post in curr_user_post %}
-    {{curr_post.company}}
-
-    <a href="{% url 'update_post' curr_post.id %}">Update</a>
-    <a href="{% url 'delete_post' curr_post.id %}">Delete</a>
-    <br><br>
-    {% endfor %}
-</body>
-
-</html>
+<a href="{% url 'update_post' curr_post.id %}">Update</a>
+<a href="{% url 'delete_post' curr_post.id %}">Delete</a>
+<br /><br />
+{% endfor %} {% endblock body %}

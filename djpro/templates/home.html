@@ -1,67 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!--Home Page Title-->
+{% block title %}Home{% endblock title %}Home
 
-<body>
-    <h1>Online Job Portal</h1>
-
-    <a href="#">Home</a>
-
-    {% if request.user.is_authenticated %}
-
-    <a href="{% url 'job_post' %}">Job Post</a>
-    <a href="{% url 'manage_post' current_user.id %}">Manage Post</a>
-    <a href="#">Contact us</a>
-    <a href="#">Admin</a>
-
-    {% if current_user_info.profile_pic %}
-    <a href="{% url 'profile' current_user.id %}">
-        <img src="{{current_user_info.profile_pic.url}}" style="height: 15px; width: auto;" alt="">
-        {{current_user.username}}</a>
-    {% else %}
-    <a href="{% url 'profile' current_user.id %}">{{current_user.username}}</a>
-    {% endif %}
-    <a href="{% url 'signout' %}">Log out</a>
-
-    {% else %}
-
-    <a href="{% url 'error' %}">Job Post</a>
-    <a href="{% url 'error' %}">Manage Post</a>
-
-    <a href="#">Contact us</a>
-    <a href="#">Admin</a>
-
-    <a href="{% url 'signup' %}">Sign up</a>
-    <a href="{% url 'signin' %}">Sign in</a>
-    <a href="{% url 'reset_password' %}">Forgot Password</a>
-
-    {% endif %}
-
-    <br>
-    <br>
-    <br><br>
-
-    {% for object in objects %}
-    {{object.company}}
-    {{object.position}}
-    {{object.location}}
-    {{object.salaryL}}
-    {{object.salaryH}}
-    {{object.min_exp}}
-    {{object.description}}
-    {{object.resume}}
-    {{object.category}}
-    <br><br>
-    {% endfor %}
-
-
-
-</body>
-
-</html>
+<!--Home Page Block-->
+{% block body %}This is the Home Page <br />{% for object in objects %}
+{{object.company}} {{object.position}} {{object.location}} {{object.salaryL}}
+{{object.salaryH}} {{object.min_exp}} {{object.description}} {{object.resume}}
+{{object.category}} <br /><br />
+{% endfor %} {% endblock body %}

@@ -205,3 +205,10 @@ def delete_post(request, pk):
 
     context = {'Object': Object}
     return render(request, 'job/deletePost.html', context)
+
+
+def detail_post(request, pk):
+
+    post = jobPost.objects.get(id=pk)
+    context = {'post': post}
+    return render(request, 'job/detailPost.html', context)

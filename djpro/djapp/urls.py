@@ -15,6 +15,7 @@ urlpatterns = [
     path('update_post/<str:pk>/', views.update_post, name='update_post'),
     path('manage_post/<str:pk>/', views.manage_post, name='manage_post'),
     path('delete_post/<str:pk>/', views.delete_post, name='delete_post'),
+    path('detail_post/<str:pk>/', views.detail_post, name='detail_post'),
     path('error/', views.error, name='error'),
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name='user/password_reset.html'),

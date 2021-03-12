@@ -3,6 +3,7 @@ from .forms import userForm, userInfoForm, userInfoUpdateForm, jobPostForm
 from .models import userInfo, User, jobPost
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+import smtplib
 
 
 def base(request):
@@ -212,3 +213,23 @@ def detail_post(request, pk):
     post = jobPost.objects.get(id=pk)
     context = {'post': post}
     return render(request, 'job/detailPost.html', context)
+
+
+def contact(request):
+    if request.method == "GET":
+        name = request.GET.get("name")
+        email = request.GET.get("email")
+        msg = request.GET.get("message")
+
+        try:
+            s = smtplib.SMTP('smtp.gmail.com', port=587)
+            s.starttls()
+            s.login("YOUR EMAIL", "YOUR PASSWORD")
+            message = name + " \nmessage: " + msg + " \nemail: " + email
+            s.sendmail("SENDER  EMAIL",
+                       "RECEIEVER EMAIL", message)
+            s.quit()
+        except:
+            print(error)
+
+    return render(request, 'contact.html')

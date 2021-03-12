@@ -1,0 +1,22 @@
+<h1>Delete Post</h1>
+
+{{Object.company}}
+{{Object.position}}
+{{Object.location}}
+{{Object.salaryL}}
+{{Object.salaryH}}
+{{Object.min_exp}}
+{{Object.description}}
+{{Object.resume}}
+{{Object.category}}
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    are you sure want to delete this post ?
+
+    <button type="submit">Delete</button>
+    <a href="{% url 'home' %}">Cancel</a>
+
+</form>

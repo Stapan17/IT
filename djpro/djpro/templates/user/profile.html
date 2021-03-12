@@ -1,0 +1,20 @@
+<h1>Profile</h1>
+
+<!-- current_user_info -->
+<!-- current_user -->
+
+{% if current_user_info.profile_pic %}
+
+<img src="{{current_user_info.profile_pic.url}}" style="height: 50px;" alt=""> <br>
+
+{% endif %}
+
+Username : {{ current_user.username }} <br>
+Email : {{ current_user.email }} <br>
+Name : {{ current_user_info.name }} <br>
+
+
+{% if request.user.id == current_user.id %}
+Phone : {{ current_user_info.phone }} <br> <br>
+<a href="{% url 'update' current_user.id %}">Update</a>
+{% endif %}

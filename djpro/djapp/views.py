@@ -216,20 +216,4 @@ def detail_post(request, pk):
 
 
 def contact(request):
-    if request.method == "GET":
-        name = request.GET.get("name")
-        email = request.GET.get("email")
-        msg = request.GET.get("message")
-
-        try:
-            s = smtplib.SMTP('smtp.gmail.com', port=587)
-            s.starttls()
-            s.login("YOUR EMAIL", "YOUR PASSWORD")
-            message = name + " \nmessage: " + msg + " \nemail: " + email
-            s.sendmail("SENDER  EMAIL",
-                       "RECEIEVER EMAIL", message)
-            s.quit()
-        except:
-            print(error)
-
     return render(request, 'contact.html')

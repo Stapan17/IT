@@ -5,19 +5,248 @@
 {% block body %}
 
 <!--start block-->
-<h1>POST</h1>
 
-<form action="" method="POST">
-    {% csrf_token %} {{form}}
+<div class="regform my-3">
+  <h1>JOB POSTING FORM</h1>
+</div>
+<div class="main my-2">
+  <form action="" method="POST">
+    {% csrf_token %} 
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Company</h2>
+    <label for="id_company"></label>
+    <input
+      class="checkBox"
+      type="text"
+      name="company"
+      maxlength="20"
+      required
+      id="id_company"
+    />
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Postion</h2>
+    <label for="id_position"></label>
+    <input
+      class="checkBox"
+      type="text"
+      name="position"
+      maxlength="20"
+      required
+      id="id_position"
+    />
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Location</h2>
+    <label for="id_location"></label>
+    <input
+      class="checkBox"
+      type="text"
+      name="location"
+      maxlength="20"
+      required
+      id="id_location"
+    />
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Salary(Lowest)</h2>
+    <label for="id_salaryL"></label>
+    <input
+      class="checkBox"
+      type="number"
+      name="salaryL"
+      min="0"
+      required
+      id="id_salaryL"
+    />
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Salary(Heighst)</h2>
+    <label for="id_salaryH"></label>
+    <input
+      class="checkBox"
+      type="number"
+      name="salaryH"
+      min="0"
+      required
+      id="id_salaryH"
+    />
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Minimum Experience</h2>
+    <label for="id_min_exp"></label>
+    <input
+      class="checkBox"
+      type="text"
+      name="min_exp"
+      maxlength="20"
+      required
+      id="id_min_exp"
+    />
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Description</h2>
+    <label for="id_description"></label>
+    <textarea
+      class="checkBox"
+      name="description"
+      cols="40"
+      rows="10"
+      required
+      id="id_description"
+    ></textarea>
 
-    <input type="submit" value="Post" />
-</form>
+    {% comment %} -------------- {% endcomment %}
+    <h2 class="name">Category</h2>
 
-<script>
-    var name1 = "{{ user.id }}";
+    <label for="id_category"></label>
+    <select
+      class="option"
+      name="category"
+      class="form-control"
+      maxlength="20"
+      id="id_category"
+    >
+      <option value="web design">Web-Design</option>
+      <option value="devlopment">Devlopment</option>
+      <option value="ar/vr">AR/VR</option>
+      <option value="ml/ai">Machine-Learning/AI</option>
+      <option value="one">One</option>
+    </select>
+    <input
+      type="hidden"
+      name="person"
+      class="form-control"
+      value=""
+      id="elder"
+    />
+
+    {% comment %} ------------------ {% endcomment %}
+    <h2 class="name">Resume</h2>
+    <label for="id_resume"></label>
+    <input
+      class="checkBox"
+      type="text"
+      name="resume"
+      maxlength="200"
+      required
+      id="id_resume"
+    />
+
+    {% comment %} --------------- {% endcomment %}
+
+    <button type="submit" value="Post" />POST</button>
+  </form>
+
+  <script>
+    var name1 = "15";
     document.getElementById("elder").value = name1;
-</script>
+  </script>
+</div>
+
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-image: url(../../static/lb3.jpg);
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+
+  .regform {
+    width: 800px;
+    background-color: rgb(0, 0, 0, 0.6);
+    margin: auto;
+    color: #ffffff;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 15px 15px;
+  }
+  .main {
+    background-color: rgb(0, 0, 0, 0.5);
+    width: 800px;
+    margin: auto;
+    border-radius: 15px 15px 15px 15px;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  #name {
+    width: 100%;
+    height: 100px;
+  }
+  .name {
+    margin-left: 25px;
+    margin-top: 30px;
+    width: 125px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .checkBox {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 480px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+  }
+
+  .option {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 480px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    overflow: hidden;
+  }
+  .option option {
+    font-size: 18px;
+  }
+  #coustomer {
+    margin-left: 25px;
+    color: white;
+    font-size: 18px;
+  }
+
+  button {
+    background-color: #3baf9f;
+    display: block;
+    margin: 20px 0px 0px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #366473;
+    padding: 14px 110px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.25px;
+  }
+  button:hover {
+    background-color: #5390f5;
+  }
+</style>
 
 <!--end block-->
+
+<!--start Footer-->
+<footer class="text-muted py-4 bg-dark">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">© 2021 All rights reserved.</p>
+  </div>
+</footer>
+<!---end Footer-->
 
 {% endblock body %}

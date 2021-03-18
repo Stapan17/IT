@@ -45,7 +45,7 @@
             width: 30%;
             margin: 20px;
             padding: 10px;
-            height: 70px;
+            height: 60px;
             font-size: 40px;
             border-radius: 15px;
             border-style: solid;
@@ -66,12 +66,11 @@
             {% csrf_token %}
 
             <div class="login">
-
                 <div class="inlogin">
+                    <img src="../../static/user2.jpeg" alt="" style="height: 100px;">
+                    <input type="file" name="profile_pic" class="vip" class="lab2" accept="image/*" id="id_profile_pic"
+                        placeholder="profile_pic">
 
-                    <img src="../../static/photo.png" alt="">
-                    <input type="file" name="profile_pic" class="form-control vip" class="lab2" accept="image/*"
-                        id="id_profile_pic" placeholder="profile_pic">
                     <!-- <label class="lab1">NAME : </label> -->
                     <input type="text" name="name" class="form-control" class="lab2" maxlength="40" required
                         id="id_name" placeholder="name">

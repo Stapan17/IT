@@ -60,106 +60,101 @@
 
 {% for object in objects %}
 <div class="album py-5 bg-light">
-    <div class="container my-0">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light">
-        {% comment %} For The Space at the starting of each card:--- {% endcomment %}
-             <div class="col">
-                <div class="card">
-                    
-                </div>
-            </div>
-            {% comment %} ---------------------- {% endcomment %}
+    <!-- <div class="container my-0">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light"> -->
+    {% comment %} For The Space at the starting of each card:--- {% endcomment %}
 
-            <div class="col">
-                <div class="card">
-                    <div class="card-body shadow-sm bg-dark" style="color: white">
-                        <p class="card-text">
-                            Company: {{object.company}}
-                        </p>
-                        <p class="card-text">
-                            Field: {{object.category}}
-                        </p>
-                        <p class="card-text">
-                            Location: {{object.location}}
-                        </p>
-                        <p class="card-text">
-                            {{object.description}}
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-primary">
-                                    <a href="{% url 'detail_post' object.id %}"> View</a>
-                                </button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
+    {% comment %} ---------------------- {% endcomment %}
+
+    <center>
+        <div class="col" style="width: 70%; text-align: left;">
+            <div class="card">
+                <div class="card-body shadow-sm bg-dark" style="color: white;">
+                    <p class="card-text">
+                        Company: {{object.company}}
+                    </p>
+                    <p class="card-text">
+                        Field: {{object.category}}
+                    </p>
+                    <p class="card-text">
+                        Location: {{object.location}}
+                    </p>
+                    <p class="card-text">
+                        {{object.description}}
+                    </p>
+
+                    <div style="text-align: right;">
+                        <a href="{% url 'detail_post' object.id %}"><button type="button"
+                                class="btn btn-sm btn-outline-primary"> View</button></a>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </center>
+    <!-- </div>
+</div> -->
+</div>
+</main>
+
+{% endfor %}
+
+<style>
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .row {
+        background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #f3f3f3),
+                color-stop(1, #f3f3f3));
+    }
+
+    .album {
+        background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #f3f3f3),
+                color-stop(1, #f3f3f3));
+        padding: 50px;
+        border: 3px;
+        margin: 20px;
+    }
+
+    .card {
+        background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #f3f3f3),
+                color-stop(1, #f3f3f3));
+        border: 3px solid #f3f3f3;
+    }
+
+    .card-body {
+        background-color: rgb(124, 124, 124);
+        border-radius: 15px;
+    }
+</style>
+
+<footer class="text-muted py-5 bg-dark">
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">
+            © 2021 All rights reserved.
+        </p>
     </div>
-    </main>
-
-    {% endfor %}
-
-    <style>
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .row {
-            background: -webkit-gradient(linear,
-                    left top,
-                    left bottom,
-                    color-stop(0.05, #f3f3f3),
-                    color-stop(1, #f3f3f3));
-        }
-
-        .album {
-            background: -webkit-gradient(linear,
-                    left top,
-                    left bottom,
-                    color-stop(0.05, #f3f3f3),
-                    color-stop(1, #f3f3f3));
-            padding: 50px;
-            border: 3px;
-            margin: 20px;
-        }
-
-        .card {
-            background: -webkit-gradient(linear,
-                    left top,
-                    left bottom,
-                    color-stop(0.05, #f3f3f3),
-                    color-stop(1, #f3f3f3));
-            border: 3px solid #f3f3f3;
-        }
-
-        .card-body {
-            background-color: rgb(124, 124, 124);
-            border-radius: 15px;
-        }
-    </style>
-
-        <footer class="text-muted py-5 bg-dark">
-        <div class="container">
-            <p class="float-end mb-1">
-                <a href="#">Back to top</a>
-            </p>
-            <p class="mb-1">
-                © 2021 All rights reserved.
-            </p>
-        </div>
-    </footer>
+</footer>
 
 
-    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
 
-    {% comment %} {{object.company}} {{object.position}}
-    {{object.location}} {{object.salaryL}} {{object.salaryH}} {{object.min_exp}}
-    {{object.description}} {{object.resume}} {{object.category}} <br /><br /> {% endcomment %}
-    {% endblock body %}
+{% comment %} {{object.company}} {{object.position}}
+{{object.location}} {{object.salaryL}} {{object.salaryH}} {{object.min_exp}}
+{{object.description}} {{object.resume}} {{object.category}} <br /><br /> {% endcomment %}
+{% endblock body %}

@@ -12,7 +12,7 @@ def base(request):
 
 def home(request):
 
-    objects = jobPost.objects.all()
+    objects = jobPost.objects.all().order_by('-id')
     context = {}
 
     if request.user.is_authenticated:

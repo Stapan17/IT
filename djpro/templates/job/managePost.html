@@ -2,10 +2,116 @@
 <!--Title-->
 {% block title %}Job-Post{% endblock title %}
 <!--body block-->
-{% block body %} {% for curr_post in curr_user_post %}
-{{curr_post.company}}
+{% block body %} 
 
-<a href="{% url 'update_post' curr_post.id %}">Update</a>
+<div class="heading">
+    <h1>Manage POST</h1>
+</div>
+
+<h2 class="name my-5">All Your Posts are Shown Below</h2>
+
+{% for curr_post in curr_user_post %}
+
+
+<div class="album py-5 my-5">
+    <center>
+        <div class="col" style="width: 70%; text-align: left;">
+            <div class="card">
+                <div class="card-body shadow-sm" style="color: white;">
+                    <p class="card-text">
+                        Company: {{curr_post.company}}
+                    </p>
+                    <p class="card-text">
+                        Field: {{curr_post.category}}
+                    </p>
+                    <p class="card-text">
+                        Location: {{curr_post.location}}
+                    </p>
+                    <p class="card-text">
+                      
+                    </p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-primary">
+                            <a href="{% url 'detail_post' curr_post.id %}">View</a>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-primary">
+                            <a href="{% url 'update_post' curr_post.id %}">Update</a>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-primary">
+                            <a href="{% url 'delete_post' curr_post.id %}">Delete</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+</main>
+
+
+
+{% comment %} <a href="{% url 'update_post' curr_post.id %}">Update</a>
 <a href="{% url 'delete_post' curr_post.id %}">Delete</a>
-<br /><br />
-{% endfor %} {% endblock body %}
+<br /><br /> {% endcomment %}
+{% endfor %} 
+
+<style>
+    body {
+        background-image: url(../../static/lb3.jpg);
+        background-position: center;
+        background-size: cover;
+        font-family: sans-serif;
+    }
+      .main {
+        background-color: rgb(0, 0, 0, 0.2);
+        width: 800px;
+        margin: auto;
+        border-radius: 15px 15px 15px 15px;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .name{
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px rgb(0,0,0,0.5);
+    }
+
+     .album {
+       
+        background-color: rgb(0, 0, 0, 0.2);
+        margin: auto;
+        color: #ffffff;
+        padding: 10px 0px 10px 0px;
+        text-align: center;
+    }
+
+    .card {
+              background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, rgb(0, 0, 0, 0)),
+                color-stop(1, rgb(0, 0, 0, 0)));
+
+        color: red;
+        border: 3px rgb(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        background-color: rgb(0, 0, 0, 0.8);
+        border-radius: 15px;
+    }
+
+    .heading {
+        background-color: rgb(0, 0, 0, 0.9);
+        margin: auto;
+        color: #ffffff;
+        padding: 10px 0px 10px 0px;
+        text-align: center;
+    }
+</style>
+
+{% endblock body %}

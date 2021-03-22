@@ -7,99 +7,45 @@
 <!--start block-->
 
 <div class="regform my-3">
-  <h1>JOB POSTING FORM</h1>
+    <h1>JOB POSTING FORM</h1>
 </div>
 <div class="main my-2">
-  <form action="" method="POST">
+    <!-- <form action="" method="POST">
     {% csrf_token %} {% comment %} ------------------ {% endcomment %}
-    <h2 class="name">Company</h2>
+    {{form}} -->
+    <!-- <h2 class="name">Company</h2>
     <label for="id_company"></label>
-    <input
-      class="checkBox"
-      type="text"
-      name="company"
-      maxlength="20"
-      required
-      id="id_company"
-    />
+    <input class="checkBox" type="text" name="company" maxlength="20" required id="id_company" />
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Postion</h2>
     <label for="id_position"></label>
-    <input
-      class="checkBox"
-      type="text"
-      name="position"
-      maxlength="20"
-      required
-      id="id_position"
-    />
+    <input class="checkBox" type="text" name="position" maxlength="20" required id="id_position" />
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Location</h2>
     <label for="id_location"></label>
-    <input
-      class="checkBox"
-      type="text"
-      name="location"
-      maxlength="20"
-      required
-      id="id_location"
-    />
+    <input class="checkBox" type="text" name="location" maxlength="20" required id="id_location" />
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Salary(Lowest)</h2>
     <label for="id_salaryL"></label>
-    <input
-      class="checkBox"
-      type="number"
-      name="salaryL"
-      min="0"
-      required
-      id="id_salaryL"
-    />
+    <input class="checkBox" type="number" name="salaryL" min="0" required id="id_salaryL" />
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Salary(Heighst)</h2>
     <label for="id_salaryH"></label>
-    <input
-      class="checkBox"
-      type="number"
-      name="salaryH"
-      min="0"
-      required
-      id="id_salaryH"
-    />
+    <input class="checkBox" type="number" name="salaryH" min="0" required id="id_salaryH" />
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Minimum Experience</h2>
     <label for="id_min_exp"></label>
-    <input
-      class="checkBox"
-      type="text"
-      name="min_exp"
-      maxlength="20"
-      required
-      id="id_min_exp"
-    />
+    <input class="checkBox" type="text" name="min_exp" maxlength="20" required id="id_min_exp" />
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Description</h2>
     <label for="id_description"></label>
-    <textarea
-      class="checkBox"
-      name="description"
-      cols="40"
-      rows="10"
-      required
-      id="id_description"
-    ></textarea>
+    <textarea class="checkBox" name="description" cols="40" rows="10" required id="id_description"></textarea>
 
     {% comment %} -------------- {% endcomment %}
     <h2 class="name">Category</h2>
 
     <label for="id_category"></label>
-    <select
-      class="option"
-      name="category"
-      class="form-control"
-      maxlength="20"
-      id="id_category"
-    >
+    <select class="option" name="category" class="form-control" maxlength="20" id="id_category">
       <option value="Web Design">Web Design</option>
       <option value="Web Devlopment">Web Devlopment</option>
       <option value="AR/VR">AR/VR</option>
@@ -108,151 +54,336 @@
       <option value="IOT - RPA">IOT - RPA</option>
       <option value="App Devlopment">App Devlopment</option>
     </select>
-    <input
-      type="hidden"
-      name="person"
-      class="form-control"
-      value=""
-      id="elder"
-    />
+    <input type="hidden" name="person" class="form-control" value="" id="elder" />
 
     {% comment %} ------------------ {% endcomment %}
     <h2 class="name">Resume</h2>
     <label for="id_resume"></label>
-    <input
-      class="checkBox"
-      type="text"
-      name="resume"
-      maxlength="200"
-      required
-      id="id_resume"
-    />
+    <input class="checkBox" type="text" name="resume" maxlength="200" required id="id_resume" /> -->
 
-    {% comment %} --------------- {% endcomment %}
+    <!-- {% comment %} --------------- {% endcomment %} -->
 
-    <button type="submit" value="Post">POST</button>
-  </form>
+    <!-- <button type="submit" value="Post">POST</button> -->
+    <!-- </form> -->
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.errors}}
+        <!-- {{form}} -->
+        <!-- <input type="hidden" name="csrfmiddlewaretoken"
+            value="YFkVID1TdCnB93WYTNM8MqmsumZKfd5D036XHFz83EuVaWBLLgTRMF3vQydTsdq3"> -->
+        <tr>
+            <th><label for="id_company">Company:</label></th>
+            <td><input type="text" name="company" maxlength="20" required id="id_company"></td>
+        </tr>
+        <tr>
+            <input type="text" name="position" maxlength="20" id="id_position">
+        </tr>
+        <tr><br>
+            <th><label for="id_position">Position:</label></th>
+            <td><select name="id_position_select" onchange="funother()" class="form-control" maxlength="20"
+                    id="id_position_select">
+                    <option value="Web Design">Web Design</option>
 
-  <script>
-    var name1 = {{ user.id }};
-    document.getElementById("elder").value = name1;
-  </script>
+                    <option value="Web Devlopment">Web Devlopment</option>
+
+                    <option value="AR/VR">AR/VR</option>
+
+                    <option value="ML/AI">ML/AI</option>
+
+                    <option value="CyberSecurity">CyberSecurity</option>
+
+                    <option value="IOT - RPA">IOT - RPA</option>
+
+                    <option value="App Devlopment">App Devlopment</option>
+
+                    <option value="other">other</option>
+
+                </select></td>
+        </tr>
+        <input type="text" placeholder="other please specify" id="id_other1">
+        <tr>
+            <th><label for="id_location">Location:</label></th>
+            <td><input type="text" name="location" maxlength="20" id="id_location"></td>
+            <td><select name="id_location_select" onchange="funother2()" class="form-control" maxlength="20"
+                    id="id_location_select">
+                    <option value="Web Design">ahmedabad</option>
+
+                    <option value="Web Devlopment">surat</option>
+
+                    <option value="AR/VR">rajkot</option>
+
+                    <option value="ML/AI">mumbai</option>
+
+                    <option value="CyberSecurity">delhi</option>
+
+                    <option value="IOT - RPA">banglore</option>
+
+                    <option value="App Devlopment">hyderabad</option>
+
+                    <option value="other">other</option>
+
+                </select></td>
+            <input type="text" placeholder="other please specify" id="id_other2">
+
+        </tr>
+        <tr><br>
+            <th><label for="id_salaryL">Salary(From):</label></th>
+            <td><input type="number" name="salaryL" min="0" required id="id_salaryL"></td>
+        </tr>
+        <tr><br>
+            <th><label for="id_salaryH">Salary(To):</label></th>
+            <td><input type="number" name="salaryH" min="0" required id="id_salaryH"></td>
+        </tr>
+        <tr><br>
+            <th><label for="id_min_exp">Min exp:</label></th>
+            <td><input type="text" name="min_exp" maxlength="20" id="id_min_exp"></td>
+            <td><select name="id_min_exp_select" onchange="funother3()" class="form-control" maxlength="20"
+                    id="id_min_exp_select">
+                    <option value="Fresher">Fresher</option>
+
+                    <option value="0-1 Years">0-1 Years</option>
+
+                    <option value="1-2 Years">1-2 Years</option>
+
+                    <option value="2-3 Years">2-3 Years</option>
+
+                    <option value="3-4 Years">3-4 Years</option>
+
+                    <option value="4-5 Years">4-5 Years</option>
+
+                    <option value="5+ Years">5+ Years</option>
+                </select></td>
+        </tr>
+        <tr><br>
+            <th><label for="id_description">Description:</label></th>
+            <td><textarea name="description" cols="40" rows="10" required id="id_description">
+</textarea></td>
+        </tr>
+        <tr><br>
+            <th><label for="id_category">Category:</label></th>
+            <td><select name="category" class="form-control" maxlength="20" id="id_category">
+                    <option value="Web Design">Web Design</option>
+
+                    <option value="Web Devlopment">Web Devlopment</option>
+
+                    <option value="AR/VR">AR/VR</option>
+
+                    <option value="ML/AI">ML/AI</option>
+
+                    <option value="CyberSecurity">CyberSecurity</option>
+
+                    <option value="IOT - RPA">IOT - RPA</option>
+
+                    <option value="App Devlopment">App Devlopment</option>
+
+                </select><input type="hidden" name="person" class="form-control" value="" id="elder"></td>
+        </tr>
+        <tr><br>
+            <th><label for="id_resume">Resume:</label></th>
+            <td><input type="text" name="resume" maxlength="200" id="id_resume"></td>
+        </tr>
+        <input type="radio" id="male" name="gender" value="male" onclick="fun1()">
+        <label for="male">Email</label>
+
+        <input type="radio" id="female" name="gender" value="female" onclick="fun2()">
+        <label for="female">URL</label><br>
+        <input type="email" value="" id="hidethisemail" placeholder="Enter Email">
+        <input type="url" value="" id="hidethisurl" placeholder="Enter URL">
+
+        <button type="submit" value="Post" onclick="done()">POST</button>
+    </form>
+
+    <script>
+        var name1 = {{ user.id }};
+        document.getElementById("elder").value = name1;
+
+        function funother() {
+            var otherval = document.getElementById("id_position_select").value;
+            if (otherval == "other") {
+                document.getElementById("id_other1").style.display = "block";
+            }
+            else {
+                document.getElementById("id_other1").style.display = "none";
+            }
+        }
+
+        function funother2() {
+            var otherval = document.getElementById("id_location_select").value;
+            if (otherval == "other") {
+                document.getElementById("id_other2").style.display = "block";
+            }
+            else {
+                document.getElementById("id_other2").style.display = "none";
+            }
+        }
+
+        function fun1() {
+            document.getElementById("hidethisemail").style.display = "block";
+            document.getElementById("hidethisurl").style.display = "none";
+        }
+
+        function fun2() {
+            document.getElementById("hidethisurl").style.display = "block";
+            document.getElementById("hidethisemail").style.display = "none";
+        }
+
+        function done() {
+            if (document.getElementById("hidethisemail").style.display == "block")
+                document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
+            else
+                document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
+
+            if (document.getElementById("id_other1").style.display == "block")
+                document.getElementById("id_position").value = document.getElementById("id_other1").value;
+            else
+                document.getElementById("id_position").value = document.getElementById("id_position_select").value;
+
+            if (document.getElementById("id_other2").style.display == "block")
+                document.getElementById("id_location").value = document.getElementById("id_other2").value;
+            else
+                document.getElementById("id_location").value = document.getElementById("id_location_select").value;
+
+            document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
+        }
+
+    </script>
 </div>
 
 <style type="text/css">
-  * {
-    margin: 0;
-    padding: 0;
-  }
+    #id_other1,
+    #id_other2,
+    #id_resume,
+    #id_min_exp {
+        display: none;
+    }
 
-  body {
-    background-image: url(../../static/lb3.jpg);
-    background-position: center;
-    background-size: cover;
-    font-family: sans-serif;
-  }
+    #id_position,
+    #id_location {
+        display: none;
+    }
 
-  .regform {
-    width: 800px;
-    background-color: rgb(0, 0, 0, 0.6);
-    margin: auto;
-    color: #ffffff;
-    padding: 10px 0px 10px 0px;
-    text-align: center;
-    border-radius: 15px 15px 15px 15px;
-  }
+    #hidethisurl {
+        display: none;
+    }
 
-  .main {
-    background-color: rgb(0, 0, 0, 0.5);
-    width: 800px;
-    margin: auto;
-    border-radius: 15px 15px 15px 15px;
-  }
+    #hidethisemail {
+        display: none;
+    }
 
-  form {
-    padding: 10px;
-  }
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-  #name {
-    width: 100%;
-    height: 100px;
-  }
+    body {
+        background-image: url(../../static/lb3.jpg);
+        background-position: center;
+        background-size: cover;
+        font-family: sans-serif;
+        color: red;
+    }
 
-  .name {
-    margin-left: 25px;
-    margin-top: 30px;
-    width: 125px;
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-  }
+    .regform {
+        width: 800px;
+        background-color: rgb(0, 0, 0, 0.6);
+        margin: auto;
+        color: #ffffff;
+        padding: 10px 0px 10px 0px;
+        text-align: center;
+        border-radius: 15px 15px 15px 15px;
+    }
 
-  .checkBox {
-    position: relative;
-    left: 200px;
-    top: -37px;
-    line-height: 40px;
-    width: 480px;
-    border-radius: 6px;
-    padding: 0 22px;
-    font-size: 16px;
-    color: #555;
-  }
+    .main {
+        background-color: rgb(0, 0, 0, 0.5);
+        width: 800px;
+        margin: auto;
+        border-radius: 15px 15px 15px 15px;
+    }
 
-  .option {
-    position: relative;
-    left: 200px;
-    top: -37px;
-    line-height: 40px;
-    width: 480px;
-    height: 40px;
-    border-radius: 6px;
-    padding: 0 22px;
-    font-size: 16px;
-    color: #555;
-    outline: none;
-    overflow: hidden;
-  }
+    form {
+        padding: 10px;
+    }
 
-  .option option {
-    font-size: 18px;
-  }
+    #name {
+        width: 100%;
+        height: 100px;
+    }
 
-  #coustomer {
-    margin-left: 25px;
-    color: white;
-    font-size: 18px;
-  }
+    .name {
+        margin-left: 25px;
+        margin-top: 30px;
+        width: 125px;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+    }
 
-  button {
-    background-color: #3baf9f;
-    display: block;
-    margin: 20px 0px 0px 20px;
-    text-align: center;
-    border-radius: 12px;
-    border: 2px solid #366473;
-    padding: 14px 110px;
-    outline: none;
-    color: white;
-    cursor: pointer;
-    transition: 0.25px;
-  }
+    .checkBox {
+        position: relative;
+        left: 200px;
+        top: -37px;
+        line-height: 40px;
+        width: 480px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color: #555;
+    }
 
-  button:hover {
-    background-color: #5390f5;
-  }
+    .option {
+        position: relative;
+        left: 200px;
+        top: -37px;
+        line-height: 40px;
+        width: 480px;
+        height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color: #555;
+        outline: none;
+        overflow: hidden;
+    }
+
+    .option option {
+        font-size: 18px;
+    }
+
+    #coustomer {
+        margin-left: 25px;
+        color: white;
+        font-size: 18px;
+    }
+
+    button {
+        background-color: #3baf9f;
+        display: block;
+        margin: 20px 0px 0px 20px;
+        text-align: center;
+        border-radius: 12px;
+        border: 2px solid #366473;
+        padding: 14px 110px;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        transition: 0.25px;
+    }
+
+    button:hover {
+        background-color: #5390f5;
+    }
 </style>
 
 <!--end block-->
 
 <!--start Footer-->
 <footer class="text-muted py-4 bg-dark">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">© 2021 All rights reserved.</p>
-  </div>
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">© 2021 All rights reserved.</p>
+    </div>
 </footer>
 <!---end Footer-->
 

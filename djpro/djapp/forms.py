@@ -6,9 +6,12 @@ from django.contrib.auth.models import User
 choices = Category.objects.all().values_list('name', 'name')
 
 choice_list = []
-
+position_list = []
 for item in choices:
     choice_list.append(item)
+    position_list.append(item)
+
+position_list.append(('other', 'other'))
 
 
 class userForm(forms.ModelForm):
@@ -52,5 +55,6 @@ class jobPostForm(forms.ModelForm):
 
         widgets = {
             "person": forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
-            "category": forms.Select(choices=choice_list, attrs={'class': 'form-control'})
+            "category": forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+            # "position": forms.Select(choices=position_list, attrs={'class': 'form-control'}),
         }

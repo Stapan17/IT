@@ -143,6 +143,12 @@ def update(request, pk):
 
 def job_post(request):
 
+    curr_user = request.user
+    pk = curr_user.id
+    current_user = User.objects.get(id=pk)
+    current_user_info = userInfo.objects.get(member_id=pk)
+    context = {'form': jobPostForm, 'current_user': current_user,
+               'current_user_info': current_user_info}
     if request.method == "POST":
         form = jobPostForm(request.POST)
 
@@ -154,13 +160,9 @@ def job_post(request):
         else:
             print("ERROR")
             print(form.errors)
+            context = {'form': jobPostForm, 'current_user': current_user,
+                       'current_user_info': current_user_info, 'form.errors': form.errors}
 
-    curr_user = request.user
-    pk = curr_user.id
-    current_user = User.objects.get(id=pk)
-    current_user_info = userInfo.objects.get(member_id=pk)
-    context = {'form': jobPostForm, 'current_user': current_user,
-               'current_user_info': current_user_info}
     return render(request, 'job/postForm.html', context)
 
 

@@ -69,14 +69,9 @@
         {% csrf_token %}
         {{form.errors}}
         <!-- {{form}} -->
-        <!-- <input type="hidden" name="csrfmiddlewaretoken"
-            value="YFkVID1TdCnB93WYTNM8MqmsumZKfd5D036XHFz83EuVaWBLLgTRMF3vQydTsdq3"> -->
         <tr>
             <th><label for="id_company">Company:</label></th>
             <td><input type="text" name="company" maxlength="20" required id="id_company"></td>
-        </tr>
-        <tr>
-            <input type="text" name="position" maxlength="20" id="id_position">
         </tr>
         <tr><br>
             <th><label for="id_position">Position:</label></th>
@@ -100,10 +95,12 @@
 
                 </select></td>
         </tr>
-        <input type="text" placeholder="other please specify" id="id_other1">
+        <tr>
+            <input type="text" name="position" maxlength="20" id="id_position" placeholder="please specify Position">
+        </tr>
+        <!-- <input type="text" placeholder="other please specify" id="id_other1"> -->
         <tr>
             <th><label for="id_location">Location:</label></th>
-            <td><input type="text" name="location" maxlength="20" id="id_location"></td>
             <td><select name="id_location_select" onchange="funother2()" class="form-control" maxlength="20"
                     id="id_location_select">
                     <option value="Web Design">ahmedabad</option>
@@ -123,7 +120,9 @@
                     <option value="other">other</option>
 
                 </select></td>
-            <input type="text" placeholder="other please specify" id="id_other2">
+            <td><input type="text" name="location" maxlength="20" id="id_location"
+                    placeholder="please specify Location"></td>
+            <!-- <input type="text" placeholder="other please specify" id="id_other2"> -->
 
         </tr>
         <tr><br>
@@ -154,11 +153,18 @@
                     <option value="5+ Years">5+ Years</option>
                 </select></td>
         </tr>
+        <tr>
+            <th><label for="id_qualification">Qualification For Job:</label></th>
+            <td><textarea name="qualification" cols="40" rows="10" required id="id_qualification"
+                    placeholder="Qualification"></textarea>
+        </tr>
+
         <tr><br>
-            <th><label for="id_description">Description:</label></th>
-            <td><textarea name="description" cols="40" rows="10" required id="id_description">
+            <th><label for="id_description">Description Of Job:</label></th>
+            <td><textarea name="description" cols="40" rows="10" required id="id_description" placeholder="Description">
 </textarea></td>
         </tr>
+
         <tr><br>
             <th><label for="id_category">Category:</label></th>
             <td><select name="category" class="form-control" maxlength="20" id="id_category">
@@ -200,20 +206,23 @@
         function funother() {
             var otherval = document.getElementById("id_position_select").value;
             if (otherval == "other") {
-                document.getElementById("id_other1").style.display = "block";
+                document.getElementById("id_position").style.display = "block";
             }
             else {
-                document.getElementById("id_other1").style.display = "none";
+                document.getElementById("id_position").style.display = "none";
             }
         }
 
         function funother2() {
             var otherval = document.getElementById("id_location_select").value;
+            console.log(otherval);
             if (otherval == "other") {
-                document.getElementById("id_other2").style.display = "block";
+                console.log("block");
+                document.getElementById("id_location").style.display = "block";
             }
             else {
-                document.getElementById("id_other2").style.display = "none";
+                console.log("none");
+                document.getElementById("id_location").style.display = "none";
             }
         }
 
@@ -233,14 +242,14 @@
             else
                 document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
 
-            if (document.getElementById("id_other1").style.display == "block")
-                document.getElementById("id_position").value = document.getElementById("id_other1").value;
-            else
+            if (document.getElementById("id_position").style.display == "none")
+                // document.getElementById("id_position").value = document.getElementById("id_other1").value;
+                // else
                 document.getElementById("id_position").value = document.getElementById("id_position_select").value;
 
-            if (document.getElementById("id_other2").style.display == "block")
-                document.getElementById("id_location").value = document.getElementById("id_other2").value;
-            else
+            if (document.getElementById("id_location").style.display == "none")
+                // document.getElementById("id_location").value = document.getElementById("id_other2").value;
+                // else
                 document.getElementById("id_location").value = document.getElementById("id_location_select").value;
 
             document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;

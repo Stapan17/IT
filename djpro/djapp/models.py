@@ -29,6 +29,7 @@ class jobPost(models.Model):
     salaryH = models.PositiveIntegerField()
     min_exp = models.CharField(max_length=20)
     description = models.TextField()
+    qualification = models.TextField()
     resume = models.CharField(max_length=200)
     category = models.CharField(max_length=20, default="coding")
 

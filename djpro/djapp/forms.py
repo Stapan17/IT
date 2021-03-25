@@ -51,7 +51,7 @@ class jobPostForm(forms.ModelForm):
     class Meta():
         model = jobPost
         fields = ("company", "position", "location",
-                  "salaryL", "salaryH", "min_exp", "description", "resume", "category", "person")
+                  "salaryL", "salaryH", "min_exp", "description", "resume", "category", "person", "qualification")
 
         widgets = {
             "person": forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),

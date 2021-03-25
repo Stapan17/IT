@@ -219,3 +219,6 @@ def detail_post(request, pk):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def admin(request):
+    return render(request, 'admin.html')

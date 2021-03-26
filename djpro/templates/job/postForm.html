@@ -73,56 +73,37 @@
             <th><label for="id_company">Company:</label></th>
             <td><input type="text" name="company" maxlength="20" required id="id_company"></td>
         </tr>
+
         <tr><br>
             <th><label for="id_position">Position:</label></th>
-            <td><select name="id_position_select" onchange="funother()" class="form-control" maxlength="20"
-                    id="id_position_select">
-                    <option value="Web Design">Web Design</option>
-
-                    <option value="Web Devlopment">Web Devlopment</option>
-
-                    <option value="AR/VR">AR/VR</option>
-
-                    <option value="ML/AI">ML/AI</option>
-
-                    <option value="CyberSecurity">CyberSecurity</option>
-
-                    <option value="IOT - RPA">IOT - RPA</option>
-
-                    <option value="App Devlopment">App Devlopment</option>
-
-                    <option value="other">other</option>
-
-                </select></td>
+            <datalist id="position_list">
+                <option value="Web Design">Web Design</option>
+                <option value="Web Devlopment">Web Devlopment</option>
+                <option value="AR/VR">AR/VR</option>
+                <option value="ML/AI">ML/AI</option>
+                <option value="CyberSecurity">CyberSecurity</option>
+                <option value="IOT - RPA">IOT - RPA</option>
+                <option value="App Devlopment">App Devlopment</option>
+            </datalist>
         </tr>
         <tr>
-            <input type="text" name="position" maxlength="20" id="id_position" placeholder="please specify Position">
-        </tr>
-        <!-- <input type="text" placeholder="other please specify" id="id_other1"> -->
+            <input type="text" name="position" maxlength="20" id="id_position" placeholder="please specify Position"
+                list="position_list">
+        </tr><br>
         <tr>
             <th><label for="id_location">Location:</label></th>
-            <td><select name="id_location_select" onchange="funother2()" class="form-control" maxlength="20"
-                    id="id_location_select">
-                    <option value="Web Design">ahmedabad</option>
-
-                    <option value="Web Devlopment">surat</option>
-
-                    <option value="AR/VR">rajkot</option>
-
-                    <option value="ML/AI">mumbai</option>
-
-                    <option value="CyberSecurity">delhi</option>
-
-                    <option value="IOT - RPA">banglore</option>
-
-                    <option value="App Devlopment">hyderabad</option>
-
-                    <option value="other">other</option>
-
-                </select></td>
-            <td><input type="text" name="location" maxlength="20" id="id_location"
+            <td><datalist id="location_list">
+                    <option value="ahmedabad">ahmedabad</option>
+                    <option value="surat">surat</option>
+                    <option value="rajkot">rajkot</option>
+                    <option value="mumbai">mumbai</option>
+                    <option value="delhi">delhi</option>
+                    <option value="banglore">banglore</option>
+                    <option value="hyderabad">hyderabad</option>
+                </datalist>
+            </td>
+            <td><input type="text" name="location" maxlength="20" list="location_list" id="id_location"
                     placeholder="please specify Location"></td>
-            <!-- <input type="text" placeholder="other please specify" id="id_other2"> -->
 
         </tr>
         <tr><br>
@@ -263,11 +244,6 @@
     #id_other2,
     #id_resume,
     #id_min_exp {
-        display: none;
-    }
-
-    #id_position,
-    #id_location {
         display: none;
     }
 

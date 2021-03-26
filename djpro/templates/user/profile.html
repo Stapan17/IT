@@ -1,3 +1,4 @@
+<!-- clone -->
 {% extends 'base.html' %} {% block title %}Profile{% endblock title %}
 <!--body-->
 {% block body %}
@@ -10,20 +11,12 @@
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             {% if current_user_info.profile_pic %}
-            <img
-              src="{{current_user_info.profile_pic.url}}"
-              alt="..."
-              width="130"
-              class="rounded mb-2 img-thumbnail"
-            />
+            <img src="{{current_user_info.profile_pic.url}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" />
             {% endif %}
             <div>
               {% if request.user.id == current_user.id %}
-              <a
-                href="{% url 'update' current_user.id %}"
-                class="btn btn-outline-dark btn-sm btn-block"
-                >Edit profile</a
-              >
+              <a href="{% url 'update' current_user.id %}" class="btn btn-outline-dark btn-sm btn-block">Edit
+                profile</a>
               {% endif %}
             </div>
 
@@ -44,14 +37,12 @@
           <li class="list-inline-item">
             <h5 class="font-weight-bold mb-0 d-block">XXX</h5>
             <small class="text-muted">
-              <i class="fas fa-image mr-1"></i>Company</small
-            >
+              <i class="fas fa-image mr-1"></i>Company</small>
           </li>
           <li class="list-inline-item">
             <h5 class="font-weight-bold mb-0 d-block">xxx</h5>
             <small class="text-muted">
-              <i class="fas fa-user mr-1"></i>Jobs Posted</small
-            >
+              <i class="fas fa-user mr-1"></i>Jobs Posted</small>
           </li>
         </ul>
       </div>
@@ -74,10 +65,7 @@
       <div class="py-4 px-4">
         <div class="d-flex align-items-center justify-content-between mb-3">
           <h5 class="mb-0">Recent Job Post</h5>
-          <button
-            type="submit"
-            onclick="window.location.href='{% url 'manage_post' current_user.id %}';"
-          >
+          <button type="submit" onclick="window.location.href='{% url 'manage_post' current_user.id %}';">
             Show All
           </button>
         </div>
@@ -107,6 +95,7 @@
         height: 100%;
         margin-right: 40px;
       }
+
       body {
         background: #654ea3;
         background: linear-gradient(to right, #e96443, #904e95);
@@ -130,6 +119,7 @@
         cursor: pointer;
         transition: 0.25px;
       }
+
       button:hover {
         background-color: #5390f5;
       }
@@ -140,11 +130,7 @@
     <!-- current_user -->
     {% comment %} {% if current_user_info.profile_pic %}
 
-    <img
-      src="{{current_user_info.profile_pic.url}}"
-      style="height: 50px"
-      alt=""
-    />
+    <img src="{{current_user_info.profile_pic.url}}" style="height: 50px" alt="" />
     <br />
 
     {% endif %}

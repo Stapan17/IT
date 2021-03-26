@@ -1,4 +1,4 @@
-<h1>Update</h1>
+<!-- <h1>Update</h1>
 
 <form action="" method="POST">
 
@@ -6,6 +6,238 @@
 
     {{form}}
 
+
     <input type="submit" value="Update">
 
+</form> -->
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.errors}}
+
+    <tr>
+        <th><label for="id_company">Company:</label></th>
+        <td><input type="text" name="company" maxlength="20" value="{{form.company.value}}" required id="id_company">
+        </td>
+    </tr>
+    <tr><br>
+        <th><label for="id_position">Position:</label></th>
+        <td><select name="id_position_select" onchange="funother()" class="form-control" maxlength="20"
+                id="id_position_select">
+                <option value="Web Design">Web Design</option>
+
+                <option value="Web Devlopment">Web Devlopment</option>
+
+                <option value="AR/VR">AR/VR</option>
+
+                <option value="ML/AI">ML/AI</option>
+
+                <option value="CyberSecurity">CyberSecurity</option>
+
+                <option value="IOT - RPA">IOT - RPA</option>
+
+                <option value="App Devlopment">App Devlopment</option>
+
+                <option value="other">other</option>
+
+            </select></td>
+    </tr>
+    <tr>
+        <input type="text" name="position" maxlength="20" value="{{form.company.value}}" id="id_position"
+            placeholder="please specify Position">
+    </tr>
+    <!-- <input type="text" placeholder="other please specify" id="id_other1"> -->
+    <tr>
+        <th><label for="id_location">Location:</label></th>
+        <td><select name="id_location_select" onchange="funother2()" class="form-control" maxlength="20"
+                id="id_location_select">
+                <option value="Web Design">ahmedabad</option>
+
+                <option value="Web Devlopment">surat</option>
+
+                <option value="AR/VR">rajkot</option>
+
+                <option value="ML/AI">mumbai</option>
+
+                <option value="CyberSecurity">delhi</option>
+
+                <option value="IOT - RPA">banglore</option>
+
+                <option value="App Devlopment">hyderabad</option>
+
+                <option value="other">other</option>
+
+            </select></td>
+        <td><input type="text" name="location" maxlength="20" value="{{form.company.value}}" id="id_location"
+                placeholder="please specify Location">
+        </td>
+        <!-- <input type="text" placeholder="other please specify" id="id_other2"> -->
+
+    </tr>
+    <tr><br>
+        <th><label for="id_salaryL">Salary(From):</label></th>
+        <td><input type="number" name="salaryL" value="{{form.salaryL.value}}" min="0" required id="id_salaryL"></td>
+    </tr>
+    <tr><br>
+        <th><label for="id_salaryH">Salary(To):</label></th>
+        <td><input type="number" name="salaryH" value="{{form.salaryH.value}}" min="0" required id="id_salaryH"></td>
+    </tr>
+    <tr><br>
+        <th><label for="id_min_exp">Min exp:</label></th>
+        <td><input type="text" name="min_exp" value="{{form.company.value}}" maxlength="20" id="id_min_exp"></td>
+        <td><select name="id_min_exp_select" onchange="funother3()" class="form-control" maxlength="20"
+                id="id_min_exp_select">
+                <option value="Fresher">Fresher</option>
+
+                <option value="0-1 Years">0-1 Years</option>
+
+                <option value="1-2 Years">1-2 Years</option>
+
+                <option value="2-3 Years">2-3 Years</option>
+
+                <option value="3-4 Years">3-4 Years</option>
+
+                <option value="4-5 Years">4-5 Years</option>
+
+                <option value="5+ Years">5+ Years</option>
+            </select></td>
+    </tr>
+    <br>
+    <tr>
+        <th><label for="id_qualification">Qualification For Job:</label></th>
+        {{form.qualification}}
+    </tr>
+
+    <tr><br>
+        <th><label for="id_description">Description Of Job:</label></th>
+        {{form.description}}
+    </tr>
+
+
+    <tr><br>
+        <th><label for="id_category">Category:</label></th>
+        <td><select name="category" class="form-control" maxlength="20" id="id_category">
+                <option value="Web Design">Web Design</option>
+
+                <option value="Web Devlopment">Web Devlopment</option>
+
+                <option value="AR/VR">AR/VR</option>
+
+                <option value="ML/AI">ML/AI</option>
+
+                <option value="CyberSecurity">CyberSecurity</option>
+
+                <option value="IOT - RPA">IOT - RPA</option>
+
+                <option value="App Devlopment">App Devlopment</option>
+
+            </select><input type="hidden" name="person" class="form-control" value="" id="elder"></td>
+    </tr>
+
+    <tr><br>
+        <th><label for="id_resume">Resume:</label></th>
+        <td><input type="text" name="resume" maxlength="200" id="id_resume"></td>
+    </tr>
+    <input type="radio" id="male" name="gender" value="male" onclick="fun1()">
+    <label for="male">Email</label>
+
+    <input type="radio" id="female" name="gender" value="female" onclick="fun2()">
+    <label for="female">URL</label><br>
+    <input type="email" value="" id="hidethisemail" value="{{form.resume.value}}" placeholder="Enter Email">
+    <input type="url" value="" id="hidethisurl" placeholder="Enter URL">
+    {{form.resume}}
+
+    <button type="submit" value="Post" onclick="done()">POST</button>
 </form>
+
+<script>
+
+    var name1 = {{ user.id }};
+    document.getElementById("elder").value = name1;
+
+    if ({{ mail }} == 1) {
+        console.log("mail is 1")
+        document.getElementById("male").checked = true;
+        fun1();
+        // document.getElementById("hidethisemail").value = resume;
+    }
+    else {
+        console.log("mail is 0")
+    }
+
+
+    function funother() {
+        var otherval = document.getElementById("id_position_select").value;
+        if (otherval == "other") {
+            document.getElementById("id_position").style.display = "block";
+        }
+        else {
+            document.getElementById("id_position").style.display = "none";
+        }
+    }
+
+    function funother2() {
+        var otherval = document.getElementById("id_location_select").value;
+        console.log(otherval);
+        if (otherval == "other") {
+            console.log("block");
+            document.getElementById("id_location").style.display = "block";
+        }
+        else {
+            console.log("none");
+            document.getElementById("id_location").style.display = "none";
+        }
+    }
+
+    function fun1() {
+        document.getElementById("hidethisemail").style.display = "block";
+        document.getElementById("hidethisurl").style.display = "none";
+    }
+
+    function fun2() {
+        document.getElementById("hidethisurl").style.display = "block";
+        document.getElementById("hidethisemail").style.display = "none";
+    }
+
+    function done() {
+        if (document.getElementById("hidethisemail").style.display == "block")
+            document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
+        else
+            document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
+
+        if (document.getElementById("id_position").style.display == "none")
+            // document.getElementById("id_position").value = document.getElementById("id_other1").value;
+            // else
+            document.getElementById("id_position").value = document.getElementById("id_position_select").value;
+
+        if (document.getElementById("id_location").style.display == "none")
+            // document.getElementById("id_location").value = document.getElementById("id_other2").value;
+            // else
+            document.getElementById("id_location").value = document.getElementById("id_location_select").value;
+
+        document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
+    }
+
+</script>
+
+<style>
+    #id_other1,
+    #id_other2,
+    #id_resume,
+    #id_min_exp {
+        display: none;
+    }
+
+    #id_position,
+    #id_location {
+        display: none;
+    }
+
+    #hidethisurl {
+        display: none;
+    }
+
+    #hidethisemail {
+        display: none;
+    }
+</style>

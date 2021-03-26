@@ -2,10 +2,10 @@
 <!--Title-->
 {% block title %}Job-Post{% endblock title %}
 <!--body block-->
-{% block body %} 
+{% block body %}
 
 <div class="heading">
-    <h1>Manage Your Post</h1>
+    <h1>Manage POST</h1>
 </div>
 
 <h2 class="name my-5">All Your Posts are Shown Below</h2>
@@ -28,24 +28,27 @@
                         Location: {{curr_post.location}}
                     </p>
                     <p class="card-text">
-                      
+
                     </p>
 
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-primary">
-                            <a href="{% url 'detail_post' curr_post.id %}">View</a>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-primary">
-                            <a href="{% url 'update_post' curr_post.id %}">Update</a>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-primary">
-                            <a href="{% url 'delete_post' curr_post.id %}">Delete</a>
-                        </button>
+                            <a href="{% url 'detail_post' curr_post.id %}"><button type="button"
+                                    class="btn btn-sm btn-success">
+                                    View
+                                </button></a>
+                            <a href="{% url 'update_post' curr_post.id %}">
+                                <button type="button" class="bn btn btn-sm btn-primary">
+                                    Update
+                                </button></a>
+                            <a href="{% url 'delete_post' curr_post.id %}">
+                                <button type="button" class="btn btn-sm btn-danger">
+                                    Delete
+                                </button></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </center>
 </div>
 </main>
@@ -55,7 +58,7 @@
 {% comment %} <a href="{% url 'update_post' curr_post.id %}">Update</a>
 <a href="{% url 'delete_post' curr_post.id %}">Delete</a>
 <br /><br /> {% endcomment %}
-{% endfor %} 
+{% endfor %}
 
 <style>
     body {
@@ -64,24 +67,27 @@
         background-size: cover;
         font-family: sans-serif;
     }
-      .main {
+
+    .main {
         background-color: rgb(0, 0, 0, 0.2);
         width: 800px;
         margin: auto;
         border-radius: 15px 15px 15px 15px;
     }
+
     a {
         text-decoration: none;
         color: white;
     }
-    .name{
+
+    .name {
         text-align: center;
         color: white;
-        text-shadow: 2px 2px rgb(0,0,0,0.5);
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.5);
     }
 
-     .album {
-       
+    .album {
+
         background-color: rgb(0, 0, 0, 0.2);
         margin: auto;
         color: #ffffff;
@@ -89,8 +95,12 @@
         text-align: center;
     }
 
+    .bn {
+        margin: 0 10px;
+    }
+
     .card {
-              background: -webkit-gradient(linear,
+        background: -webkit-gradient(linear,
                 left top,
                 left bottom,
                 color-stop(0.05, rgb(0, 0, 0, 0)),
@@ -113,6 +123,5 @@
         text-align: center;
     }
 </style>
-
 
 {% endblock body %}

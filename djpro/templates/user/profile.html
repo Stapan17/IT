@@ -1,20 +1,166 @@
-<h1>Profile</h1>
+{% extends 'base.html' %} {% block title %}Profile{% endblock title %}
+<!--body-->
+{% block body %}
 
-<!-- current_user_info -->
-<!-- current_user -->
+<div class="row py-5 px-4">
+  <div class="col-md-5 mx-auto">
+    <!-- Profile widget -->
+    <div class="bg-white shadow rounded overflow-hidden">
+      <div class="px-4 pt-0 pb-4 cover">
+        <div class="media align-items-end profile-head">
+          <div class="profile mr-3">
+            {% if current_user_info.profile_pic %}
+            <img
+              src="{{current_user_info.profile_pic.url}}"
+              alt="..."
+              width="130"
+              class="rounded mb-2 img-thumbnail"
+            />
+            {% endif %}
+            <div>
+              {% if request.user.id == current_user.id %}
+              <a
+                href="{% url 'update' current_user.id %}"
+                class="btn btn-outline-dark btn-sm btn-block"
+                >Edit profile</a
+              >
+              {% endif %}
+            </div>
 
-{% if current_user_info.profile_pic %}
+            <!--div-->
+          </div>
 
-<img src="{{current_user_info.profile_pic.url}}" style="height: 50px;" alt=""> <br>
+          <div class="media-body mb-5 text-white">
+            <h4 class="mt-0 mb-0">{{ current_user.username }}</h4>
+            <p class="small mb-4">
+              <i class="fas fa-map-marker-alt mr-2">location</i>
+            </p>
+          </div>
+        </div>
+      </div>
 
-{% endif %}
+      <div class="bg-light p-4 d-flex justify-content-end text-center">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block">XXX</h5>
+            <small class="text-muted">
+              <i class="fas fa-image mr-1"></i>Company</small
+            >
+          </li>
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block">xxx</h5>
+            <small class="text-muted">
+              <i class="fas fa-user mr-1"></i>Jobs Posted</small
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="px-4 py-3">
+        <h5 class="mb-0">About</h5>
+        <div class="p-4 rounded shadow-sm bg-light">
+          <p class="font-italic mb-0">
+            <strong>Name: &nbsp</strong>{{ current_user_info.name }}
+          </p>
+          <p class="font-italic mb-0">
+            <strong>Email: &nbsp</strong>{{ current_user.email }}
+          </p>
+          {% if request.user.id == current_user.id %}
+          <p class="font-italic mb-0">
+            <strong>Contact: &nbsp</strong>{{ current_user_info.phone}}
+          </p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="py-4 px-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="mb-0">Recent Job Post</h5>
+          <button
+            type="submit"
+            onclick="window.location.href='{% url 'manage_post' current_user.id %}';"
+          >
+            Show All
+          </button>
+        </div>
 
-Username : {{ current_user.username }} <br>
-Email : {{ current_user.email }} <br>
-Name : {{ current_user_info.name }} <br>
+        {% comment %} -----users post------ {% endcomment %}
+      </div>
+    </div>
 
+    <style>
+      .profile-head {
+        transform: translateY(5rem);
+      }
 
-{% if request.user.id == current_user.id %}
-Phone : {{ current_user_info.phone }} <br> <br>
-<a href="{% url 'update' current_user.id %}">Update</a>
-{% endif %}
+      .cover {
+        background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .media {
+        margin-bottom: 120px;
+      }
+
+      .profile {
+        width: 49%;
+        float: left;
+        height: 100%;
+        margin-right: 40px;
+      }
+      body {
+        background: #654ea3;
+        background: linear-gradient(to right, #e96443, #904e95);
+        min-height: 100vh;
+      }
+
+      .btn {
+        width: 130px;
+      }
+
+      button {
+        background-color: #3baf9f;
+        display: block;
+        margin: 20px 0px 0px 20px;
+        text-align: center;
+        border-radius: 12px;
+        border: 0px solid #3baf9f;
+        padding: 14px 110px;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        transition: 0.25px;
+      }
+      button:hover {
+        background-color: #5390f5;
+      }
+    </style>
+    {% comment %} -------------------------------------------------- {%
+    endcomment%}
+    <!-- current_user_info -->
+    <!-- current_user -->
+    {% comment %} {% if current_user_info.profile_pic %}
+
+    <img
+      src="{{current_user_info.profile_pic.url}}"
+      style="height: 50px"
+      alt=""
+    />
+    <br />
+
+    {% endif %}
+
+    <!--info-->
+    Username : {{ current_user.username }} <br />
+    Email : {{ current_user.email }} <br />
+    Name : {{ current_user_info.name }} <br />
+
+    <!--if-->
+    {% if request.user.id == current_user.id %} Phone : {{
+    current_user_info.phone}}
+    <br /><br />
+    <a href="{% url 'update' current_user.id %}">Update</a>
+    {% endif %}
+    <!--end-->
+    {% endcomment %} {% endblock body %}
+  </div>
+</div>

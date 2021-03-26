@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import userForm, userInfoForm, userInfoUpdateForm, jobPostForm
-from .models import userInfo, User, jobPost
+from .models import userInfo, User, jobPost, contactUS
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import smtplib
@@ -218,7 +218,20 @@ def detail_post(request, pk):
 
 
 def contact(request):
+    print("aa gya")
+    if request.method == 'POST':
+        form = contactUS()
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        form.name = name
+        form.mail = email
+        form.message = message
+        form.save()
+        return redirect('home')
     return render(request, 'contact.html')
+
 
 def admin(request):
     return render(request, 'admin.html')

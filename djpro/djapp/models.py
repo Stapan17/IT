@@ -35,3 +35,12 @@ class jobPost(models.Model):
 
     def __str__(self):
         return self.company
+
+
+class contactUS(models.Model):
+    name = models.CharField(max_length=50)
+    mail = models.CharField(max_length=50)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

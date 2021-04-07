@@ -42,9 +42,19 @@
                         <a class="nav-link" href="{% url 'admin' %}">Admin</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' current_user.id %}">{{current_user.username}}</a>
+                    <li>
+                        <form class="d-flex" style="margin-left: 50px;">
+                            <input type="text">
+                            <!-- <input type="button" value="Search" class="btn"> -->
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </li>
+
+                    <li class="nav-item" style="text-align: right;">
+                        <a class="nav-link" href="{% url 'profile' current_user.id %}"
+                            style="margin-left: 350px;">{{current_user.username}} &nbsp;&nbsp;&nbsp; |</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'signout' %}">Log-Out</a>
                     </li>
@@ -63,13 +73,8 @@
                     {% comment %}
                     {% endcomment %} {% endif %}
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">
-                        Search
-                    </button>
-                </form>
-                </li>
+
+
             </div>
         </div>
     </nav>

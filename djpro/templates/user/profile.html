@@ -14,7 +14,8 @@
             {% endif %}
             <div>
               {% if request.user.id == current_user.id %}
-              <a href="{% url 'update' current_user.id %}" class="btn btn-outline-dark btn-sm btn-block">Edit
+              <a href="{% url 'update' current_user.id %}" class="btn btn-outline-dark btn-sm btn-block"
+                style="margin-top: 10px;">Edit
                 profile</a>
               {% endif %}
             </div>
@@ -108,7 +109,7 @@
       button {
         background-color: #3baf9f;
         display: block;
-        margin: 20px 0px 0px 20px;
+        /* margin: 20px 0px 0px 20px; */
         text-align: center;
         border-radius: 12px;
         border: 0px solid #3baf9f;

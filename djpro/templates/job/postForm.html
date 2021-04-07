@@ -65,7 +65,7 @@
 
     <!-- <button type="submit" value="Post">POST</button> -->
     <!-- </form> -->
-    <form action="" method="POST">
+    <form action="" method="POST" style="padding: 15px;">
         {% csrf_token %}
         {{form.errors}}
         <!-- {{form}} -->
@@ -77,17 +77,17 @@
         <tr><br>
             <th><label for="id_position">Position:</label></th>
             <datalist id="position_list">
-                <option value="Web Design">Web Design</option>
-                <option value="Web Devlopment">Web Devlopment</option>
-                <option value="AR/VR">AR/VR</option>
-                <option value="ML/AI">ML/AI</option>
-                <option value="CyberSecurity">CyberSecurity</option>
-                <option value="IOT - RPA">IOT - RPA</option>
-                <option value="App Devlopment">App Devlopment</option>
+                <option value="Web Designer">Web Designer</option>
+                <option value="Web Devloper">Web Devloper</option>
+                <option value="Android Devloper">Android Devloper</option>
+                <option value="Software Eng.">Software Eng.</option>
+                <option value="Data Analysit">Data Analysit</option>
+                <option value="Big Data Devloper">Big Data Devloper</option>
+                <option value="Java Devloper">Java Devloper</option>
             </datalist>
         </tr>
         <tr>
-            <input type="text" name="position" maxlength="20" id="id_position" placeholder="please specify Position"
+            <input type="text" name="position" maxlength="20" id="id_position" placeholder="Select or Specify Position"
                 list="position_list">
         </tr><br>
         <tr>
@@ -103,7 +103,7 @@
                 </datalist>
             </td>
             <td><input type="text" name="location" maxlength="20" list="location_list" id="id_location"
-                    placeholder="please specify Location"></td>
+                    placeholder="Select or Specify Location"></td>
 
         </tr>
         <tr><br>
@@ -166,7 +166,11 @@
                 </select><input type="hidden" name="person" class="form-control" value="" id="elder"></td>
         </tr>
         <tr><br>
-            <th><label for="id_resume">Resume:</label></th>
+            <p>Please Specify a URL or EMAIL for further communication for Employee.</p>
+            <p>In your given choices Employee can submit/mail you his/her resume.</p>
+            <p>Here you can Specify mail id, form link, your website link, etc. </p>
+            <p>where they can contact with you if they are intrested in this job.</p>
+
             <td><input type="text" name="resume" maxlength="200" id="id_resume"></td>
         </tr>
         <input type="radio" id="male" name="gender" value="male" onclick="fun1()">
@@ -265,7 +269,7 @@
         background-position: center;
         background-size: cover;
         font-family: sans-serif;
-        color: red;
+        color: rgb(255, 255, 255);
     }
 
     .regform {
@@ -285,9 +289,6 @@
         border-radius: 15px 15px 15px 15px;
     }
 
-    form {
-        padding: 10px;
-    }
 
     #name {
         width: 100%;
@@ -343,7 +344,7 @@
     button {
         background-color: #3baf9f;
         display: block;
-        margin: 20px 0px 0px 20px;
+        /* margin: 20px 0px 0px 20px; */
         text-align: center;
         border-radius: 12px;
         border: 2px solid #366473;

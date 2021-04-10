@@ -1,5 +1,48 @@
 {% extends 'base.html' %}
 
+{% block head %}<style>
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .row {
+        background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #f3f3f3),
+                color-stop(1, #f3f3f3));
+    }
+
+    .album {
+        background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #f3f3f3),
+                color-stop(1, #f3f3f3));
+        padding: 50px;
+        border: 3px;
+        margin: 20px;
+    }
+
+    .card {
+        background: -webkit-gradient(linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #f3f3f3),
+                color-stop(1, #f3f3f3));
+        border: 3px solid #f3f3f3;
+    }
+
+    .card-body {
+        background-color: rgb(124, 124, 124);
+        border-radius: 15px;
+    }
+    
+</style>
+{% endblock head %}
+
+
 <!--Home Page Title-->
 {% block title %}Home{% endblock title %}
 
@@ -85,7 +128,7 @@
 
                     <div style="text-align: right;">
                         <a href="{% url 'detail_post' object.id %}"><button type="button"
-                                class="btn btn-sm btn-outline-primary"> View</button></a>
+                                class="btn"> View</button></a>
                     </div>
                 </div>
             </div>
@@ -98,47 +141,8 @@
 
 {% endfor %}
 
-<style>
-    a {
-        text-decoration: none;
-        color: white;
-    }
 
-    .row {
-        background: -webkit-gradient(linear,
-                left top,
-                left bottom,
-                color-stop(0.05, #f3f3f3),
-                color-stop(1, #f3f3f3));
-    }
-
-    .album {
-        background: -webkit-gradient(linear,
-                left top,
-                left bottom,
-                color-stop(0.05, #f3f3f3),
-                color-stop(1, #f3f3f3));
-        padding: 50px;
-        border: 3px;
-        margin: 20px;
-    }
-
-    .card {
-        background: -webkit-gradient(linear,
-                left top,
-                left bottom,
-                color-stop(0.05, #f3f3f3),
-                color-stop(1, #f3f3f3));
-        border: 3px solid #f3f3f3;
-    }
-
-    .card-body {
-        background-color: rgb(124, 124, 124);
-        border-radius: 15px;
-    }
-</style>
-
-<footer class="text-muted py-5 bg-dark">
+<footer class="text-muted py-5" style="background: #0d0d0d;">
     <div class="container">
         <p class="float-end mb-1">
             <a href="#">Back to top</a>

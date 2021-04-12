@@ -1,9 +1,114 @@
-company : {{post.company}} <br>
-position : {{post.position}}<br>
-location : {{post.location}}<br>
-salaryL : {{post.salaryL}}<br>
-salaryH : {{post.salaryH}}<br>
-min_exp : {{post.min_exp}}<br>
-description : {{post.description}}<br>
-send your resume at : {{post.resume}}<br>
-category : {{post.category}}<br>
+{% extends 'base.html' %}
+<!--title-->
+{% block title %}{% endblock title %}
+
+<!--body-->
+
+{% block body %}
+
+<div id="login-box">
+  <div class="left">
+    <h1><strong>Company:&nbsp</strong> {{post.company}}</h1>
+
+    <ul>
+      <h2><strong>Location:&nbsp&nbsp&nbsp</strong>{{post.location}}</h2>
+      <h2><strong>Position:&nbsp&nbsp&nbsp</strong>{{post.position}}</h2>
+      <h2><strong>Salary (lowest):&nbsp&nbsp&nbsp</strong>{{post.salaryL}}</h2>
+      <h2><strong>Salary (heighst):&nbsp&nbsp&nbsp</strong>{{post.salaryH}}</h2>
+      <h2>
+        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong
+        >{{post.min_exp}}
+      </h2>
+      <h2>
+        <strong>Job-Description:&nbsp&nbsp&nbsp</strong>{{post.description}}
+      </h2>
+      <h2><strong>Catagory:&nbsp&nbsp&nbsp</strong>{{post.category}}</h2>
+    </ul>
+
+    <input type="submit" name="signup_submit" value="Submit Your Resume" />
+  </div>
+</div>
+
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+  *:focus {
+    outline: none;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #ddd;
+    font-size: 16px;
+    color: #222;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+  }
+
+  #login-box {
+    position: relative;
+    margin: 5% auto;
+    width: 600px;
+    height: 500px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 600px;
+    height: 600px;
+  }
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+  }
+
+  h2 {
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  input[type="submit"] {
+    margin-top: 28px;
+    width: 185px;
+    height: 32px;
+    background: #16a085;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover,
+  input[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
+
+  input[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
+</style>
+
+<footer class="text-muted py-5" style="background: #1a2238">
+  <div class="container">
+    <p class="mb-0">© 2021 All rights reserved.</p>
+  </div>
+</footer>
+{% endblock body %}

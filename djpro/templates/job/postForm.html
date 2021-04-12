@@ -7,13 +7,13 @@
 <!--start block-->
 
 <div class="regform my-3">
-    <h1>JOB POSTING FORM</h1>
+  <h1>JOB POSTING FORM</h1>
 </div>
 <div class="main my-2">
-    <!-- <form action="" method="POST">
+  <!-- <form action="" method="POST">
     {% csrf_token %} {% comment %} ------------------ {% endcomment %}
     {{form}} -->
-    <!-- <h2 class="name">Company</h2>
+  <!-- <h2 class="name">Company</h2>
     <label for="id_company"></label>
     <input class="checkBox" type="text" name="company" maxlength="20" required id="id_company" />
     {% comment %} ------------------ {% endcomment %}
@@ -61,313 +61,391 @@
     <label for="id_resume"></label>
     <input class="checkBox" type="text" name="resume" maxlength="200" required id="id_resume" /> -->
 
-    <!-- {% comment %} --------------- {% endcomment %} -->
+  <!-- {% comment %} --------------- {% endcomment %} -->
 
-    <!-- <button type="submit" value="Post">POST</button> -->
-    <!-- </form> -->
-    <form action="" method="POST" style="padding: 15px;">
-        {% csrf_token %}
-        {{form.errors}}
-        <!-- {{form}} -->
-        <tr>
-            <th><label for="id_company">Company:</label></th>
-            <td><input type="text" name="company" maxlength="20" required id="id_company"></td>
-        </tr>
+  <!-- <button type="submit" value="Post">POST</button> -->
+  <!-- </form> -->
+  <form action="" method="POST" style="padding: 15px">
+    {% csrf_token %} {{form.errors}}
+    <!-- {{form}} -->
+    <tr>
+      <th><label for="id_company">Company:</label></th>
+      <td>
+        <input
+          type="text"
+          name="company"
+          maxlength="20"
+          required
+          id="id_company"
+        />
+      </td>
+    </tr>
 
-        <tr><br>
-            <th><label for="id_position">Position:</label></th>
-            <datalist id="position_list">
-                <option value="Web Designer">Web Designer</option>
-                <option value="Web Developer">Web Developer</option>
-                <option value="Android Devloper">Android Devloper</option>
-                <option value="Software Eng.">Software Eng.</option>
-                <option value="Data Analysit">Data Analysit</option>
-                <option value="Big Data Devloper">Big Data Devloper</option>
-                <option value="Java Devloper">Java Devloper</option>
-            </datalist>
-        </tr>
-        <tr>
-            <input type="text" name="position" maxlength="20" id="id_position" placeholder="Select or Specify Position"
-                list="position_list">
-        </tr><br>
-        <tr>
-            <th><label for="id_location">Location:</label></th>
-            <td><datalist id="location_list">
-                    <option value="Ahmedabad">Ahmedabad</option>
-                    <option value="Surat">Surat</option>
-                    <option value="Rajkot">Rajkot</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Banglore">Banglore</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                </datalist>
-            </td>
-            <td><input type="text" name="location" maxlength="20" list="location_list" id="id_location"
-                    placeholder="Select or Specify Location"></td>
+    <tr>
+      <br />
+      <th><label for="id_position">Position:</label></th>
+      <datalist id="position_list">
+        <option value="Web Designer">Web Designer</option>
+        <option value="Web Developer">Web Developer</option>
+        <option value="Android Devloper">Android Devloper</option>
+        <option value="Software Eng.">Software Eng.</option>
+        <option value="Data Analysit">Data Analysit</option>
+        <option value="Big Data Devloper">Big Data Devloper</option>
+        <option value="Java Devloper">Java Devloper</option>
+      </datalist>
+    </tr>
+    <tr>
+      <input
+        type="text"
+        name="position"
+        maxlength="20"
+        id="id_position"
+        placeholder="Select or Specify Position"
+        list="position_list"
+      />
+    </tr>
+    <br />
+    <tr>
+      <th><label for="id_location">Location:</label></th>
+      <td>
+        <datalist id="location_list">
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Surat">Surat</option>
+          <option value="Rajkot">Rajkot</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Banglore">Banglore</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </datalist>
+      </td>
+      <td>
+        <input
+          type="text"
+          name="location"
+          maxlength="20"
+          list="location_list"
+          id="id_location"
+          placeholder="Select or Specify Location"
+        />
+      </td>
+    </tr>
+    <tr>
+      <br />
+      <th><label for="id_salaryL">Salary(From):</label></th>
+      <td>
+        <input type="number" name="salaryL" min="0" required id="id_salaryL" />
+      </td>
+    </tr>
+    <tr>
+      <br />
+      <th><label for="id_salaryH">Salary(To):</label></th>
+      <td>
+        <input type="number" name="salaryH" min="0" required id="id_salaryH" />
+      </td>
+    </tr>
+    <tr>
+      <br />
+      <th><label for="id_min_exp">Min exp:</label></th>
+      <td>
+        <input type="text" name="min_exp" maxlength="20" id="id_min_exp" />
+      </td>
+      <td>
+        <select
+          name="id_min_exp_select"
+          onchange="funother3()"
+          class="form-control"
+          maxlength="20"
+          id="id_min_exp_select"
+        >
+          <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
 
-        </tr>
-        <tr><br>
-            <th><label for="id_salaryL">Salary(From):</label></th>
-            <td><input type="number" name="salaryL" min="0" required id="id_salaryL"></td>
-        </tr>
-        <tr><br>
-            <th><label for="id_salaryH">Salary(To):</label></th>
-            <td><input type="number" name="salaryH" min="0" required id="id_salaryH"></td>
-        </tr>
-        <tr><br>
-            <th><label for="id_min_exp">Min exp:</label></th>
-            <td><input type="text" name="min_exp" maxlength="20" id="id_min_exp"></td>
-            <td><select name="id_min_exp_select" onchange="funother3()" class="form-control" maxlength="20"
-                    id="id_min_exp_select">
-                    <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
+          <option value="1-2 Years">1-2 Years</option>
 
-                    <option value="1-2 Years">1-2 Years</option>
+          <option value="2-3 Years">2-3 Years</option>
 
-                    <option value="2-3 Years">2-3 Years</option>
+          <option value="3-4 Years">3-4 Years</option>
 
-                    <option value="3-4 Years">3-4 Years</option>
+          <option value="4-5 Years">4-5 Years</option>
 
-                    <option value="4-5 Years">4-5 Years</option>
+          <option value="5+ Years">5+ Years</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="id_qualification">Qualification For Job:</label></th>
+      <td>
+        <textarea
+          name="qualification"
+          cols="40"
+          rows="10"
+          required
+          id="id_qualification"
+          placeholder="Qualification"
+        ></textarea>
+      </td>
+    </tr>
 
-                    <option value="5+ Years">5+ Years</option>
-                </select></td>
-        </tr>
-        <tr>
-            <th><label for="id_qualification">Qualification For Job:</label></th>
-            <td><textarea name="qualification" cols="40" rows="10" required id="id_qualification"
-                    placeholder="Qualification"></textarea>
-        </tr>
+    <tr>
+      <br />
+      <th><label for="id_description">Description Of Job:</label></th>
+      <td>
+        <textarea
+          name="description"
+          cols="40"
+          rows="10"
+          required
+          id="id_description"
+          placeholder="Description"
+        ></textarea>
+      </td>
+    </tr>
 
-        <tr><br>
-            <th><label for="id_description">Description Of Job:</label></th>
-            <td><textarea name="description" cols="40" rows="10" required id="id_description" placeholder="Description">
-</textarea></td>
-        </tr>
+    <tr>
+      <br />
+      <th><label for="id_category">Category:</label></th>
+      <td>
+        <select
+          name="category"
+          class="form-control"
+          maxlength="20"
+          id="id_category"
+        >
+          <option value="Web Design">Web Design</option>
 
-        <tr><br>
-            <th><label for="id_category">Category:</label></th>
-            <td><select name="category" class="form-control" maxlength="20" id="id_category">
-                    <option value="Web Design">Web Design</option>
+          <option value="Web Devlopment">Web Devlopment</option>
 
-                    <option value="Web Devlopment">Web Devlopment</option>
+          <option value="AR/VR">AR/VR</option>
 
-                    <option value="AR/VR">AR/VR</option>
+          <option value="ML/AI">ML/AI</option>
 
-                    <option value="ML/AI">ML/AI</option>
+          <option value="CyberSecurity">CyberSecurity</option>
 
-                    <option value="CyberSecurity">CyberSecurity</option>
+          <option value="IOT - RPA">IOT - RPA</option>
 
-                    <option value="IOT - RPA">IOT - RPA</option>
+          <option value="App Devlopment">App Devlopment</option></select
+        ><input
+          type="hidden"
+          name="person"
+          class="form-control"
+          value=""
+          id="elder"
+        />
+      </td>
+    </tr>
+    <tr>
+      <br />
+      <p>
+        Please Specify a URL or EMAIL for further communication for Employee.
+      </p>
+      <p>In your given choices Employee can submit/mail you his/her resume.</p>
+      <p>Here you can Specify mail id, form link, your website link, etc.</p>
+      <p>where they can contact with you if they are intrested in this job.</p>
 
-                    <option value="App Devlopment">App Devlopment</option>
+      <td>
+        <input type="text" name="resume" maxlength="200" id="id_resume" />
+      </td>
+    </tr>
+    <input type="radio" id="male" name="gender" value="male" onclick="fun1()" />
+    <label for="male">Email</label>
 
-                </select><input type="hidden" name="person" class="form-control" value="" id="elder"></td>
-        </tr>
-        <tr><br>
-            <p>Please Specify a URL or EMAIL for further communication for Employee.</p>
-            <p>In your given choices Employee can submit/mail you his/her resume.</p>
-            <p>Here you can Specify mail id, form link, your website link, etc. </p>
-            <p>where they can contact with you if they are intrested in this job.</p>
+    <input
+      type="radio"
+      id="female"
+      name="gender"
+      value="female"
+      onclick="fun2()"
+    />
+    <label for="female">URL</label><br />
+    <input type="email" value="" id="hidethisemail" placeholder="Enter Email" />
+    <input type="url" value="" id="hidethisurl" placeholder="Enter URL" />
 
-            <td><input type="text" name="resume" maxlength="200" id="id_resume"></td>
-        </tr>
-        <input type="radio" id="male" name="gender" value="male" onclick="fun1()">
-        <label for="male">Email</label>
+    <button type="submit" value="Post" onclick="done()">POST</button>
+  </form>
 
-        <input type="radio" id="female" name="gender" value="female" onclick="fun2()">
-        <label for="female">URL</label><br>
-        <input type="email" value="" id="hidethisemail" placeholder="Enter Email">
-        <input type="url" value="" id="hidethisurl" placeholder="Enter URL">
+  <script>
+    var name1 = {{ user.id }};
+    document.getElementById("elder").value = name1;
 
-        <button type="submit" value="Post" onclick="done()">POST</button>
-    </form>
-
-    <script>
-        var name1 = {{ user.id }};
-        document.getElementById("elder").value = name1;
-
-        function funother() {
-            var otherval = document.getElementById("id_position_select").value;
-            if (otherval == "other") {
-                document.getElementById("id_position").style.display = "block";
-            }
-            else {
-                document.getElementById("id_position").style.display = "none";
-            }
+    function funother() {
+        var otherval = document.getElementById("id_position_select").value;
+        if (otherval == "other") {
+            document.getElementById("id_position").style.display = "block";
         }
-
-        function funother2() {
-            var otherval = document.getElementById("id_location_select").value;
-            console.log(otherval);
-            if (otherval == "other") {
-                console.log("block");
-                document.getElementById("id_location").style.display = "block";
-            }
-            else {
-                console.log("none");
-                document.getElementById("id_location").style.display = "none";
-            }
+        else {
+            document.getElementById("id_position").style.display = "none";
         }
+    }
 
-        function fun1() {
-            document.getElementById("hidethisemail").style.display = "block";
-            document.getElementById("hidethisurl").style.display = "none";
+    function funother2() {
+        var otherval = document.getElementById("id_location_select").value;
+        console.log(otherval);
+        if (otherval == "other") {
+            console.log("block");
+            document.getElementById("id_location").style.display = "block";
         }
-
-        function fun2() {
-            document.getElementById("hidethisurl").style.display = "block";
-            document.getElementById("hidethisemail").style.display = "none";
+        else {
+            console.log("none");
+            document.getElementById("id_location").style.display = "none";
         }
+    }
 
-        function done() {
-            if (document.getElementById("hidethisemail").style.display == "block")
-                document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
-            else
-                document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
+    function fun1() {
+        document.getElementById("hidethisemail").style.display = "block";
+        document.getElementById("hidethisurl").style.display = "none";
+    }
 
-            if (document.getElementById("id_position").style.display == "none")
-                // document.getElementById("id_position").value = document.getElementById("id_other1").value;
-                // else
-                document.getElementById("id_position").value = document.getElementById("id_position_select").value;
+    function fun2() {
+        document.getElementById("hidethisurl").style.display = "block";
+        document.getElementById("hidethisemail").style.display = "none";
+    }
 
-            if (document.getElementById("id_location").style.display == "none")
-                // document.getElementById("id_location").value = document.getElementById("id_other2").value;
-                // else
-                document.getElementById("id_location").value = document.getElementById("id_location_select").value;
+    function done() {
+        if (document.getElementById("hidethisemail").style.display == "block")
+            document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
+        else
+            document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
 
-            document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
-        }
+        if (document.getElementById("id_position").style.display == "none")
+            // document.getElementById("id_position").value = document.getElementById("id_other1").value;
+            // else
+            document.getElementById("id_position").value = document.getElementById("id_position_select").value;
 
-    </script>
+        if (document.getElementById("id_location").style.display == "none")
+            // document.getElementById("id_location").value = document.getElementById("id_other2").value;
+            // else
+            document.getElementById("id_location").value = document.getElementById("id_location_select").value;
+
+        document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
+    }
+  </script>
 </div>
 
 <style type="text/css">
-    #id_other1,
-    #id_other2,
-    #id_resume,
-    #id_min_exp {
-        display: none;
-    }
+  #id_other1,
+  #id_other2,
+  #id_resume,
+  #id_min_exp {
+    display: none;
+  }
 
-    #hidethisurl {
-        display: none;
-    }
+  #hidethisurl {
+    display: none;
+  }
 
-    #hidethisemail {
-        display: none;
-    }
+  #hidethisemail {
+    display: none;
+  }
 
-    * {
-        margin: 0;
-        padding: 0;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-    body {
-        background-image: url(../../static/lb3.jpg);
-        background-position: center;
-        background-size: cover;
-        font-family: sans-serif;
-        color: rgb(255, 255, 255);
-    }
+  body {
+    background-image: url(../../static/lb3.jpg);
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+  }
 
-    .regform {
-        width: 800px;
-        background-color: rgb(0, 0, 0, 0.6);
-        margin: auto;
-        color: #ffffff;
-        padding: 10px 0px 10px 0px;
-        text-align: center;
-        border-radius: 15px 15px 15px 15px;
-    }
+  .regform {
+    width: 800px;
+    background-color: rgb(0, 0, 0, 0.6);
+    margin: auto;
+    color: #ffffff;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 15px 15px;
+  }
 
-    .main {
-        background-color: rgb(0, 0, 0, 0.5);
-        width: 800px;
-        margin: auto;
-        border-radius: 15px 15px 15px 15px;
-    }
+  .main {
+    background-color: rgb(0, 0, 0, 0.5);
+    width: 800px;
+    margin: auto;
+    border-radius: 15px 15px 15px 15px;
+  }
 
+  #name {
+    width: 100%;
+    height: 100px;
+  }
 
-    #name {
-        width: 100%;
-        height: 100px;
-    }
+  .name {
+    margin-left: 25px;
+    margin-top: 30px;
+    width: 125px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
 
-    .name {
-        margin-left: 25px;
-        margin-top: 30px;
-        width: 125px;
-        color: white;
-        font-size: 20px;
-        font-weight: 700;
-    }
+  .checkBox {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 480px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+  }
 
-    .checkBox {
-        position: relative;
-        left: 200px;
-        top: -37px;
-        line-height: 40px;
-        width: 480px;
-        border-radius: 6px;
-        padding: 0 22px;
-        font-size: 16px;
-        color: #555;
-    }
+  .option {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 480px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    overflow: hidden;
+  }
 
-    .option {
-        position: relative;
-        left: 200px;
-        top: -37px;
-        line-height: 40px;
-        width: 480px;
-        height: 40px;
-        border-radius: 6px;
-        padding: 0 22px;
-        font-size: 16px;
-        color: #555;
-        outline: none;
-        overflow: hidden;
-    }
+  .option option {
+    font-size: 18px;
+  }
 
-    .option option {
-        font-size: 18px;
-    }
+  #coustomer {
+    margin-left: 25px;
+    color: white;
+    font-size: 18px;
+  }
 
-    #coustomer {
-        margin-left: 25px;
-        color: white;
-        font-size: 18px;
-    }
+  button {
+    background-color: #3baf9f;
+    display: block;
+    /* margin: 20px 0px 0px 20px; */
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #366473;
+    padding: 14px 110px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.25px;
+  }
 
-    button {
-        background-color: #3baf9f;
-        display: block;
-        /* margin: 20px 0px 0px 20px; */
-        text-align: center;
-        border-radius: 12px;
-        border: 2px solid #366473;
-        padding: 14px 110px;
-        outline: none;
-        color: white;
-        cursor: pointer;
-        transition: 0.25px;
-    }
-
-    button:hover {
-        background-color: #5390f5;
-    }
+  button:hover {
+    background-color: #5390f5;
+  }
 </style>
 
 <!--end block-->
 
 <!--start Footer-->
-<footer class="text-muted py-4 bg-dark">
-    <div class="container">
-        <p class="float-end mb-1">
-            <a href="#">Back to top</a>
-        </p>
-        <p class="mb-1">© 2021 All rights reserved.</p>
-    </div>
+<footer class="text-muted py-4" style="background: #0d0d0d">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">© 2021 All rights reserved.</p>
+  </div>
 </footer>
 <!---end Footer-->
 

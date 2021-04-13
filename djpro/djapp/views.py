@@ -213,12 +213,14 @@ def delete_post(request, pk):
 def detail_post(request, pk):
 
     post = jobPost.objects.get(id=pk)
-    context = {'post': post}
+    current_user = request.user
+    current_user_info = userInfo.objects.get(member_id=current_user.id)
+    context = {'post': post, 'current_user': current_user,
+               'current_user_info': current_user_info}
     return render(request, 'job/detailPost.html', context)
 
 
 def contact(request):
-    print("aa gya")
     if request.method == 'POST':
         form = contactUS()
         name = request.POST.get('name')

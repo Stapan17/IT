@@ -71,13 +71,7 @@
     <tr>
       <th><label for="id_company">Company:</label></th>
       <td>
-        <input
-          type="text"
-          name="company"
-          maxlength="20"
-          required
-          id="id_company"
-        />
+        <input type="text" name="company" maxlength="20" required id="id_company" />
       </td>
     </tr>
 
@@ -95,14 +89,8 @@
       </datalist>
     </tr>
     <tr>
-      <input
-        type="text"
-        name="position"
-        maxlength="20"
-        id="id_position"
-        placeholder="Select or Specify Position"
-        list="position_list"
-      />
+      <input type="text" name="position" maxlength="20" id="id_position" placeholder="Select or Specify Position"
+        list="position_list" />
     </tr>
     <br />
     <tr>
@@ -119,14 +107,8 @@
         </datalist>
       </td>
       <td>
-        <input
-          type="text"
-          name="location"
-          maxlength="20"
-          list="location_list"
-          id="id_location"
-          placeholder="Select or Specify Location"
-        />
+        <input type="text" name="location" maxlength="20" list="location_list" id="id_location"
+          placeholder="Select or Specify Location" />
       </td>
     </tr>
     <tr>
@@ -145,43 +127,27 @@
     </tr>
     <tr>
       <br />
-      <th><label for="id_min_exp">Min exp:</label></th>
+      <th><label for="id_min_exp">Minimum experience Required For This Job:</label></th>
       <td>
-        <input type="text" name="min_exp" maxlength="20" id="id_min_exp" />
+        <datalist id="min_exp_list">
+          <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
+          <option value="1-2 Years">1-2 Years</option>
+          <option value="2-3 Years">2-3 Years</option>
+          <option value="3-4 Years">3-4 Years</option>
+          <option value="4-5 Years">4-5 Years</option>
+          <option value="5+ Years">5+ Years</option>
+        </datalist>
       </td>
       <td>
-        <select
-          name="id_min_exp_select"
-          onchange="funother3()"
-          class="form-control"
-          maxlength="20"
-          id="id_min_exp_select"
-        >
-          <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
-
-          <option value="1-2 Years">1-2 Years</option>
-
-          <option value="2-3 Years">2-3 Years</option>
-
-          <option value="3-4 Years">3-4 Years</option>
-
-          <option value="4-5 Years">4-5 Years</option>
-
-          <option value="5+ Years">5+ Years</option>
-        </select>
+        <input type="text" name="min_exp" maxlength="20" id="id_min_exp" list="min_exp_list" />
       </td>
     </tr>
+    <br>
     <tr>
       <th><label for="id_qualification">Qualification For Job:</label></th>
       <td>
-        <textarea
-          name="qualification"
-          cols="40"
-          rows="10"
-          required
-          id="id_qualification"
-          placeholder="Qualification"
-        ></textarea>
+        <textarea name="qualification" cols="40" rows="10" required id="id_qualification"
+          placeholder="Qualification"></textarea>
       </td>
     </tr>
 
@@ -189,14 +155,8 @@
       <br />
       <th><label for="id_description">Description Of Job:</label></th>
       <td>
-        <textarea
-          name="description"
-          cols="40"
-          rows="10"
-          required
-          id="id_description"
-          placeholder="Description"
-        ></textarea>
+        <textarea name="description" cols="40" rows="10" required id="id_description"
+          placeholder="Description"></textarea>
       </td>
     </tr>
 
@@ -204,12 +164,7 @@
       <br />
       <th><label for="id_category">Category:</label></th>
       <td>
-        <select
-          name="category"
-          class="form-control"
-          maxlength="20"
-          id="id_category"
-        >
+        <select name="category" class="form-control" maxlength="20" id="id_category">
           <option value="Web Design">Web Design</option>
 
           <option value="Web Devlopment">Web Devlopment</option>
@@ -222,14 +177,8 @@
 
           <option value="IOT - RPA">IOT - RPA</option>
 
-          <option value="App Devlopment">App Devlopment</option></select
-        ><input
-          type="hidden"
-          name="person"
-          class="form-control"
-          value=""
-          id="elder"
-        />
+          <option value="App Devlopment">App Devlopment</option>
+        </select><input type="hidden" name="person" class="form-control" value="" id="elder" />
       </td>
     </tr>
     <tr>
@@ -248,13 +197,7 @@
     <input type="radio" id="male" name="gender" value="male" onclick="fun1()" />
     <label for="male">Email</label>
 
-    <input
-      type="radio"
-      id="female"
-      name="gender"
-      value="female"
-      onclick="fun2()"
-    />
+    <input type="radio" id="female" name="gender" value="female" onclick="fun2()" />
     <label for="female">URL</label><br />
     <input type="email" value="" id="hidethisemail" placeholder="Enter Email" />
     <input type="url" value="" id="hidethisurl" placeholder="Enter URL" />
@@ -267,55 +210,55 @@
     document.getElementById("elder").value = name1;
 
     function funother() {
-        var otherval = document.getElementById("id_position_select").value;
-        if (otherval == "other") {
-            document.getElementById("id_position").style.display = "block";
-        }
-        else {
-            document.getElementById("id_position").style.display = "none";
-        }
+      var otherval = document.getElementById("id_position_select").value;
+      if (otherval == "other") {
+        document.getElementById("id_position").style.display = "block";
+      }
+      else {
+        document.getElementById("id_position").style.display = "none";
+      }
     }
 
     function funother2() {
-        var otherval = document.getElementById("id_location_select").value;
-        console.log(otherval);
-        if (otherval == "other") {
-            console.log("block");
-            document.getElementById("id_location").style.display = "block";
-        }
-        else {
-            console.log("none");
-            document.getElementById("id_location").style.display = "none";
-        }
+      var otherval = document.getElementById("id_location_select").value;
+      console.log(otherval);
+      if (otherval == "other") {
+        console.log("block");
+        document.getElementById("id_location").style.display = "block";
+      }
+      else {
+        console.log("none");
+        document.getElementById("id_location").style.display = "none";
+      }
     }
 
     function fun1() {
-        document.getElementById("hidethisemail").style.display = "block";
-        document.getElementById("hidethisurl").style.display = "none";
+      document.getElementById("hidethisemail").style.display = "block";
+      document.getElementById("hidethisurl").style.display = "none";
     }
 
     function fun2() {
-        document.getElementById("hidethisurl").style.display = "block";
-        document.getElementById("hidethisemail").style.display = "none";
+      document.getElementById("hidethisurl").style.display = "block";
+      document.getElementById("hidethisemail").style.display = "none";
     }
 
     function done() {
-        if (document.getElementById("hidethisemail").style.display == "block")
-            document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
-        else
-            document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
+      if (document.getElementById("hidethisemail").style.display == "block")
+        document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
+      else
+        document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
 
-        if (document.getElementById("id_position").style.display == "none")
-            // document.getElementById("id_position").value = document.getElementById("id_other1").value;
-            // else
-            document.getElementById("id_position").value = document.getElementById("id_position_select").value;
+      // if (document.getElementById("id_position").style.display == "none")
+      //   // document.getElementById("id_position").value = document.getElementById("id_other1").value;
+      //   // else
+      //   document.getElementById("id_position").value = document.getElementById("id_position_select").value;
 
-        if (document.getElementById("id_location").style.display == "none")
-            // document.getElementById("id_location").value = document.getElementById("id_other2").value;
-            // else
-            document.getElementById("id_location").value = document.getElementById("id_location_select").value;
+      // if (document.getElementById("id_location").style.display == "none")
+      //   // document.getElementById("id_location").value = document.getElementById("id_other2").value;
+      //   // else
+      //   document.getElementById("id_location").value = document.getElementById("id_location_select").value;
 
-        document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
+      // document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
     }
   </script>
 </div>
@@ -323,8 +266,7 @@
 <style type="text/css">
   #id_other1,
   #id_other2,
-  #id_resume,
-  #id_min_exp {
+  #id_resume {
     display: none;
   }
 

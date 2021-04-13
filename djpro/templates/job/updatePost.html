@@ -20,58 +20,45 @@
         <td><input type="text" name="company" maxlength="20" value="{{form.company.value}}" required id="id_company">
         </td>
     </tr>
-    <tr><br>
-        <th><label for="id_position">Position:</label></th>
-        <td><select name="id_position_select" onchange="funother()" class="form-control" maxlength="20"
-                id="id_position_select">
-                <option value="Web Design">Web Design</option>
 
-                <option value="Web Devlopment">Web Devlopment</option>
-
-                <option value="AR/VR">AR/VR</option>
-
-                <option value="ML/AI">ML/AI</option>
-
-                <option value="CyberSecurity">CyberSecurity</option>
-
-                <option value="IOT - RPA">IOT - RPA</option>
-
-                <option value="App Devlopment">App Devlopment</option>
-
-                <option value="other">other</option>
-
-            </select></td>
-    </tr>
     <tr>
-        <input type="text" name="position" maxlength="20" value="{{form.company.value}}" id="id_position"
-            placeholder="please specify Position">
+        <br />
+        <th><label for="id_position">Position:</label></th>
+        <datalist id="position_list">
+            <option value="Web Designer">Web Designer</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Android Devloper">Android Devloper</option>
+            <option value="Software Eng.">Software Eng.</option>
+            <option value="Data Analysit">Data Analysit</option>
+            <option value="Big Data Devloper">Big Data Devloper</option>
+            <option value="Java Devloper">Java Devloper</option>
+        </datalist>
     </tr>
-    <!-- <input type="text" placeholder="other please specify" id="id_other1"> -->
+
+    <tr>
+        <input type="text" name="position" maxlength="20" id="id_position" placeholder="Select or Specify Position"
+            list="position_list" value="{{form.position.value}}" />
+    </tr>
+    <br />
+
     <tr>
         <th><label for="id_location">Location:</label></th>
-        <td><select name="id_location_select" onchange="funother2()" class="form-control" maxlength="20"
-                id="id_location_select">
-                <option value="Web Design">ahmedabad</option>
-
-                <option value="Web Devlopment">surat</option>
-
-                <option value="AR/VR">rajkot</option>
-
-                <option value="ML/AI">mumbai</option>
-
-                <option value="CyberSecurity">delhi</option>
-
-                <option value="IOT - RPA">banglore</option>
-
-                <option value="App Devlopment">hyderabad</option>
-
-                <option value="other">other</option>
-
-            </select></td>
-        <td><input type="text" name="location" maxlength="20" value="{{form.company.value}}" id="id_location"
-                placeholder="please specify Location">
+        <td>
+            <datalist id="location_list">
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Surat">Surat</option>
+                <option value="Rajkot">Rajkot</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Banglore">Banglore</option>
+                <option value="Hyderabad">Hyderabad</option>
+            </datalist>
         </td>
-        <!-- <input type="text" placeholder="other please specify" id="id_other2"> -->
+        <td>
+            <input type="text" name="location" maxlength="20" list="location_list" id="id_location"
+                placeholder="Select or Specify Location" value="{{form.location.value}}" />
+        </td>
+    </tr>
 
     </tr>
     <tr><br>
@@ -82,27 +69,28 @@
         <th><label for="id_salaryH">Salary(To):</label></th>
         <td><input type="number" name="salaryH" value="{{form.salaryH.value}}" min="0" required id="id_salaryH"></td>
     </tr>
-    <tr><br>
-        <th><label for="id_min_exp">Min exp:</label></th>
-        <td><input type="text" name="min_exp" value="{{form.company.value}}" maxlength="20" id="id_min_exp"></td>
-        <td><select name="id_min_exp_select" onchange="funother3()" class="form-control" maxlength="20"
-                id="id_min_exp_select">
-                <option value="Fresher">Fresher</option>
+    <br>
 
-                <option value="0-1 Years">0-1 Years</option>
-
+    <tr>
+        <br />
+        <th><label for="id_min_exp">Minimum experience Required For This Job:</label></th>
+        <td>
+            <datalist id="min_exp_list">
+                <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
                 <option value="1-2 Years">1-2 Years</option>
-
                 <option value="2-3 Years">2-3 Years</option>
-
                 <option value="3-4 Years">3-4 Years</option>
-
                 <option value="4-5 Years">4-5 Years</option>
-
                 <option value="5+ Years">5+ Years</option>
-            </select></td>
+            </datalist>
+        </td>
+        <td>
+            <input type="text" name="min_exp" maxlength="20" id="id_min_exp" list="min_exp_list"
+                value="{{form.min_exp.value}}" />
+        </td>
     </tr>
     <br>
+
     <tr>
         <th><label for="id_qualification">Qualification For Job:</label></th>
         {{form.qualification}}
@@ -118,20 +106,15 @@
         <th><label for="id_category">Category:</label></th>
         <td><select name="category" class="form-control" maxlength="20" id="id_category">
                 <option value="Web Design">Web Design</option>
-
                 <option value="Web Devlopment">Web Devlopment</option>
-
                 <option value="AR/VR">AR/VR</option>
-
                 <option value="ML/AI">ML/AI</option>
-
                 <option value="CyberSecurity">CyberSecurity</option>
-
                 <option value="IOT - RPA">IOT - RPA</option>
-
                 <option value="App Devlopment">App Devlopment</option>
-
-            </select><input type="hidden" name="person" class="form-control" value="" id="elder"></td>
+            </select>
+            <input type="hidden" name="person" class="form-control" value="" id="elder">
+        </td>
     </tr>
 
     <tr><br>
@@ -143,9 +126,9 @@
 
     <input type="radio" id="female" name="gender" value="female" onclick="fun2()">
     <label for="female">URL</label><br>
+
     <input type="email" value="" id="hidethisemail" value="{{form.resume.value}}" placeholder="Enter Email">
     <input type="url" value="" id="hidethisurl" placeholder="Enter URL">
-    {{form.resume}}
 
     <button type="submit" value="Post" onclick="done()">POST</button>
 </form>
@@ -155,41 +138,8 @@
     var name1 = {{ user.id }};
     document.getElementById("elder").value = name1;
 
-    if ({{ mail }} == 1) {
-        console.log("mail is 1")
-        document.getElementById("male").checked = true;
-        fun1();
-        // document.getElementById("hidethisemail").value = resume;
-    }
-    else {
-        console.log("mail is 0")
-    }
-
-
-    function funother() {
-        var otherval = document.getElementById("id_position_select").value;
-        if (otherval == "other") {
-            document.getElementById("id_position").style.display = "block";
-        }
-        else {
-            document.getElementById("id_position").style.display = "none";
-        }
-    }
-
-    function funother2() {
-        var otherval = document.getElementById("id_location_select").value;
-        console.log(otherval);
-        if (otherval == "other") {
-            console.log("block");
-            document.getElementById("id_location").style.display = "block";
-        }
-        else {
-            console.log("none");
-            document.getElementById("id_location").style.display = "none";
-        }
-    }
-
     function fun1() {
+        console.log("ok great");
         document.getElementById("hidethisemail").style.display = "block";
         document.getElementById("hidethisurl").style.display = "none";
     }
@@ -223,13 +173,7 @@
 <style>
     #id_other1,
     #id_other2,
-    #id_resume,
-    #id_min_exp {
-        display: none;
-    }
-
-    #id_position,
-    #id_location {
+    #id_resume {
         display: none;
     }
 

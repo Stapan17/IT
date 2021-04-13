@@ -16,8 +16,10 @@
       <h2><strong>Salary (lowest):&nbsp&nbsp&nbsp</strong>{{post.salaryL}}</h2>
       <h2><strong>Salary (heighst):&nbsp&nbsp&nbsp</strong>{{post.salaryH}}</h2>
       <h2>
-        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong
-        >{{post.min_exp}}
+        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong>{{post.min_exp}}
+      </h2>
+      <h2>
+        <strong>Job-Qualification:&nbsp&nbsp&nbsp</strong>{{post.qualification}}
       </h2>
       <h2>
         <strong>Job-Description:&nbsp&nbsp&nbsp</strong>{{post.description}}
@@ -31,6 +33,7 @@
 
 <style>
   @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
   *:focus {
     outline: none;
   }
@@ -49,7 +52,7 @@
     position: relative;
     margin: 5% auto;
     width: 600px;
-    height: 500px;
+    height: 550px;
     background: #fff;
     border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);

@@ -121,25 +121,31 @@
         <th><label for="id_resume">Resume:</label></th>
         <td><input type="text" name="resume" maxlength="200" id="id_resume"></td>
     </tr>
-    <input type="radio" id="male" name="gender" value="male" onclick="fun1()">
+    <input type="radio" id="choice_email" name="gender" value="male" onclick="fun1()">
     <label for="male">Email</label>
 
-    <input type="radio" id="female" name="gender" value="female" onclick="fun2()">
+    <input type="radio" id="choice_url" name="gender" value="female" onclick="fun2()">
     <label for="female">URL</label><br>
 
     <input type="email" value="" id="hidethisemail" value="{{form.resume.value}}" placeholder="Enter Email">
     <input type="url" value="" id="hidethisurl" placeholder="Enter URL">
 
     <button type="submit" value="Post" onclick="done()">POST</button>
+    {% if flag %}
+
+    {% else %}
+
+    {% endif %}
 </form>
 
 <script>
 
     var name1 = {{ user.id }};
     document.getElementById("elder").value = name1;
+    document.getElementById("choice_email").checked = true;
+
 
     function fun1() {
-        console.log("ok great");
         document.getElementById("hidethisemail").style.display = "block";
         document.getElementById("hidethisurl").style.display = "none";
     }
@@ -154,33 +160,13 @@
             document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
         else
             document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
-
-        if (document.getElementById("id_position").style.display == "none")
-            // document.getElementById("id_position").value = document.getElementById("id_other1").value;
-            // else
-            document.getElementById("id_position").value = document.getElementById("id_position_select").value;
-
-        if (document.getElementById("id_location").style.display == "none")
-            // document.getElementById("id_location").value = document.getElementById("id_other2").value;
-            // else
-            document.getElementById("id_location").value = document.getElementById("id_location_select").value;
-
-        document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
     }
 
 </script>
 
 <style>
-    #id_other1,
-    #id_other2,
-    #id_resume {
-        display: none;
-    }
-
-    #hidethisurl {
-        display: none;
-    }
-
+    #id_resume,
+    #hidethisurl,
     #hidethisemail {
         display: none;
     }

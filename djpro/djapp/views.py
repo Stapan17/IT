@@ -195,7 +195,7 @@ def update_post(request, pk):
         else:
             print(form_data.errors)
 
-    context = {'form': form}
+    context = {'form': form, 'flag': False}
     return render(request, 'job/updatePost.html', context)
 
 

@@ -10,6 +10,8 @@
 
 {% comment %} <h2 class="name my-5">All Your Posts are Shown Below</h2> {% endcomment %}
 
+<div class="MB">
+<main>
 {% for curr_post in curr_user_post %}
 
 
@@ -52,6 +54,7 @@
     </center>
 </div>
 </main>
+</div>
 
 
 
@@ -64,12 +67,16 @@
     body {
         background: #f5f5f5;
         font-family: sans-serif;
+        
+    }
+    .MB{
+            padding-top: 400px;
     }
 
     .main {
         background-color: rgb(0, 0, 0, 0.2);
         width: 800px;
-        margin: auto;
+    
         border-radius: 15px 15px 15px 15px;
     }
 

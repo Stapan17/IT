@@ -71,13 +71,7 @@
     <tr>
       <th><label for="id_company">Company:</label></th>
       <td>
-        <input
-          type="text"
-          name="company"
-          maxlength="20"
-          required
-          id="id_company"
-        />
+        <input type="text" name="company" maxlength="20" required id="id_company" />
       </td>
     </tr>
 
@@ -95,14 +89,8 @@
       </datalist>
     </tr>
     <tr>
-      <input
-        type="text"
-        name="position"
-        maxlength="20"
-        id="id_position"
-        placeholder="Select or Specify Position"
-        list="position_list"
-      />
+      <input type="text" name="position" maxlength="20" id="id_position" placeholder="Select or Specify Position"
+        list="position_list" />
     </tr>
     <br />
     <tr>
@@ -119,14 +107,8 @@
         </datalist>
       </td>
       <td>
-        <input
-          type="text"
-          name="location"
-          maxlength="20"
-          list="location_list"
-          id="id_location"
-          placeholder="Select or Specify Location"
-        />
+        <input type="text" name="location" maxlength="20" list="location_list" id="id_location"
+          placeholder="Select or Specify Location" />
       </td>
     </tr>
     <tr>
@@ -145,11 +127,7 @@
     </tr>
     <tr>
       <br />
-      <th>
-        <label for="id_min_exp"
-          >Minimum experience Required For This Job:</label
-        >
-      </th>
+      <th><label for="id_min_exp">Minimum experience Required For This Job:</label></th>
       <td>
         <datalist id="min_exp_list">
           <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
@@ -161,27 +139,15 @@
         </datalist>
       </td>
       <td>
-        <input
-          type="text"
-          name="min_exp"
-          maxlength="20"
-          id="id_min_exp"
-          list="min_exp_list"
-        />
+        <input type="text" name="min_exp" maxlength="20" id="id_min_exp" list="min_exp_list" />
       </td>
     </tr>
-    <br />
+    <br>
     <tr>
       <th><label for="id_qualification">Qualification For Job:</label></th>
       <td>
-        <textarea
-          name="qualification"
-          cols="40"
-          rows="10"
-          required
-          id="id_qualification"
-          placeholder="Qualification"
-        ></textarea>
+        <textarea name="qualification" cols="40" rows="10" required id="id_qualification"
+          placeholder="Qualification"></textarea>
       </td>
     </tr>
 
@@ -189,14 +155,8 @@
       <br />
       <th><label for="id_description">Description Of Job:</label></th>
       <td>
-        <textarea
-          name="description"
-          cols="40"
-          rows="10"
-          required
-          id="id_description"
-          placeholder="Description"
-        ></textarea>
+        <textarea name="description" cols="40" rows="10" required id="id_description"
+          placeholder="Description"></textarea>
       </td>
     </tr>
 
@@ -204,12 +164,7 @@
       <br />
       <th><label for="id_category">Category:</label></th>
       <td>
-        <select
-          name="category"
-          class="form-control"
-          maxlength="20"
-          id="id_category"
-        >
+        <select name="category" class="form-control" maxlength="20" id="id_category">
           <option value="Web Design">Web Design</option>
 
           <option value="Web Devlopment">Web Devlopment</option>
@@ -222,14 +177,8 @@
 
           <option value="IOT - RPA">IOT - RPA</option>
 
-          <option value="App Devlopment">App Devlopment</option></select
-        ><input
-          type="hidden"
-          name="person"
-          class="form-control"
-          value=""
-          id="elder"
-        />
+          <option value="App Devlopment">App Devlopment</option>
+        </select><input type="hidden" name="person" class="form-control" value="" id="elder" />
       </td>
     </tr>
     <tr>
@@ -248,13 +197,7 @@
     <input type="radio" id="male" name="gender" value="male" onclick="fun1()" />
     <label for="male">Email</label>
 
-    <input
-      type="radio"
-      id="female"
-      name="gender"
-      value="female"
-      onclick="fun2()"
-    />
+    <input type="radio" id="female" name="gender" value="female" onclick="fun2()" />
     <label for="female">URL</label><br />
     <input type="email" value="" id="hidethisemail" placeholder="Enter Email" />
     <input type="url" value="" id="hidethisurl" placeholder="Enter URL" />
@@ -321,204 +264,129 @@
 </div>
 
 <style type="text/css">
-  *,
-  *:before,
-  *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  #id_other1,
+  #id_other2,
+  #id_resume {
+    display: none;
+  }
+
+  #hidethisurl {
+    display: none;
+  }
+
+  #hidethisemail {
+    display: none;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    font-family: "Nunito", sans-serif;
-    color: #384047;
+    background: #f5f5f5;
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
   }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 15px;
-    margin-top: 50px;
-    border-radius: 3px;
-  }
-
-  tr {
-    background-color: #f5f5f5;
-  }
-
-  th,
-  td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
+  .regform {
+    width: 800px;
+    background-color: #1a2238;
+    margin: auto;
+    color: #ffffff;
+    padding: 10px 0px 10px 0px;
     text-align: center;
+    border-radius: 15px 15px 15px 15px;
   }
 
-  .clickable-row:hover {
-    background-color: #cdcdcd;
+  .main {
+    background-color: #1a2238;
+    width: 800px;
+    margin: auto;
+    border-radius: 15px 15px 15px 15px;
   }
 
-  .head {
-    color: white;
-    background: green;
+  #name {
+    width: 100%;
+    height: 100px;
   }
 
-  form {
-    max-width: 300px;
-    margin: 10px auto;
+  .name {
+    margin-left: 25px;
     margin-top: 30px;
-    padding: 10px 20px;
-    background: #f4f7f8;
-    border-radius: 8px;
+    width: 125px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
   }
 
-  h1 {
-    font-size: 35px;
-    margin: 0 0 20px 0;
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  input[type="text"],
-  input[type="password"],
-  input[type="date"],
-  input[type="datetime"],
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="time"],
-  input[type="url"],
-  textarea,
-  select {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
+  .checkBox {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 480px;
+    border-radius: 6px;
+    padding: 0 22px;
     font-size: 16px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 10px;
-    width: 100%;
-    background-color: #e8eeef;
-    color: #8a97a0;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    margin-bottom: 5px;
+    color: #555;
   }
 
-  input[type="radio"],
-  input[type="checkbox"] {
-    margin: 0 4px 8px 0;
+  .option {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 480px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    overflow: hidden;
   }
 
-  select {
-    padding: 6px;
-    height: 32px;
-    border-radius: 2px;
+  .option option {
+    font-size: 18px;
+  }
+
+  #coustomer {
+    margin-left: 25px;
+    color: white;
+    font-size: 18px;
   }
 
   button {
-    align: center;
-    padding: 10px 30px 10px 30px;
-    color: #fff;
-    background-color: #4bc970;
-    font-size: 18px;
+    background-color: #ff6a3d;
+    display: block;
+    /* margin: 20px 0px 0px 20px; */
     text-align: center;
-    font-style: normal;
-    border-radius: 5px;
-    width: 50%;
-    border: 1px solid #3ac162;
-    border-width: 1px 1px 3px;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-    margin-bottom: 10px;
-    margin-left: 25%;
-    background: -webkit-linear-gradient(to right, #019e35 0%, #02e64d 100%);
-    background: -moz-linear-gradient(to right, #019e35 0%, #02e64d 100%);
-    background: linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    border-radius: 12px;
+    border: 2px solid #ff6a3d;
+    padding: 14px 110px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.25px;
   }
 
   button:hover {
-    background: -webkit-linear-gradient(to right, #02e64d 0%, #019e35 100%);
-    background: -moz-linear-gradient(to right, #02e64d 0%, #019e35 100%);
-    background: linear-gradient(to right, #02e64d 0%, #019e35 100%);
-  }
-
-  .btnSub {
-    padding: 10px 30px 10px 30px;
-    color: #fff;
-    background-color: #4bc970;
-    font-size: 18px;
-    text-align: center;
-    font-style: normal;
-    border-radius: 5px;
-    width: 50%;
-    border: 1px solid #3ac162;
-    border-width: 1px 1px 3px;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-    margin-bottom: 10px;
-    background: -webkit-linear-gradient(to right, #019e35 0%, #02e64d 100%);
-    background: -moz-linear-gradient(to right, #019e35 0%, #02e64d 100%);
-    background: linear-gradient(to right, #019e35 0%, #02e64d 100%);
-  }
-
-  .btnSub:hover {
-    background: -webkit-linear-gradient(to right, #02e64d 0%, #019e35 100%);
-    background: -moz-linear-gradient(to right, #02e64d 0%, #019e35 100%);
-    background: linear-gradient(to right, #02e64d 0%, #019e35 100%);
-    color: white;
-  }
-
-  .center {
-    align: center;
-    text-align: center;
-    margin: 40px;
-  }
-
-  fieldset {
-    margin-bottom: 30px;
-    border: none;
-  }
-
-  legend {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  label.light {
-    font-weight: 300;
-    display: inline;
-  }
-
-  .bikes {
-    margin: 70px;
-    border-radius: 3px;
-  }
-
-  .number {
-    background-color: #5fcf80;
-    color: #fff;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    font-size: 0.8em;
-    margin-right: 4px;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-radius: 100%;
-  }
-
-  @media screen and (min-width: 480px) {
-    form {
-      max-width: 700px;
-    }
+    background-color: #f4db7d;
   }
 </style>
 
 <!--end block-->
+
+<!--start Footer-->
+<footer class="text-muted py-4" style="background: #0d0d0d">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">© 2021 All rights reserved.</p>
+  </div>
+</footer>
+<!---end Footer-->
 
 {% endblock body %}

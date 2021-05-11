@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
     <title>Document</title>
     <style>
         body {
@@ -21,20 +21,29 @@
 
         .headered {
             color: white;
-            background-color: rgb(255, 94, 0);
-            width: 40%;
+            background-color: #ff8d1e;
+            text-shadow: 1px 1px grey;
+            height: 60px;
+            width: 35%;
             text-align: center;
-            border-radius: 15px;
-            margin-top: 50px;
+            border-radius: 7px;
+            margin: 50px 0;
+            font-size: 30px;
+            padding-top: 10px;
+        }
+
+        button {
+            height: 50px;
+            font-size: 40px;
+            width: 250px;
+            color: white;
+            border-radius: 7px;
+            margin: 10px;
+            padding: 0 15px;
         }
 
         .btn {
-            height: 60px;
-            font-size: 30px;
-            width: auto;
-            color: white;
-            border-radius: 15px;
-            margin: 10px;
+            font-size: 20px;
         }
 
         .inlogin {
@@ -43,77 +52,66 @@
 
         .form-control {
             width: 30%;
-            margin: 20px;
+            margin: 25px;
             padding: 10px;
-            height: 60px;
-            font-size: 40px;
-            border-radius: 15px;
+            height: 50px;
+            font-size: 30px;
+            border-radius: 7px;
             border-style: solid;
-            border-width: 3px 3px;
-            border-color: green;
+            border-width: 2px 2px;
+            border-color: #353230;
             text-align: center;
+        }
+
+        .txt {
+            font-size: 20px;
+            padding-top: 10px;
         }
     </style>
 </head>
 
 <body>
-
     <center>
-        <h1 class="headered">SignUP</h1>
+        <h1 class="headered">Create account</h1>
 
         <form action="" method="POST" enctype="multipart/form-data">
-
             {% csrf_token %}
 
             <div class="login">
                 <div class="inlogin">
-                    <img src="../../static/user2.jpeg" alt="" style="height: 100px;">
+                    <img src="../../static/user2.jpeg" alt="" style="height: 100px; padding-left: 100px;" />
+
                     <input type="file" name="profile_pic" class="vip" class="lab2" accept="image/*" id="id_profile_pic"
-                        placeholder="profile_pic">
+                        placeholder="profile_pic" style="padding-left: 20px;" />
 
-                    <!-- <label class="lab1">NAME : </label> -->
                     <input type="text" name="name" class="form-control" class="lab2" maxlength="40" required
-                        id="id_name" placeholder="name">
-                    <!-- <br>    -->
-                    <!-- <label class="lab1">PHONE : </label> -->
+                        id="id_name" placeholder="Name" />
+
                     <input type="number" name="phone" class="form-control" class="lab2" required id="id_phone"
-                        placeholder="phone">
-                    <!-- <br> -->
+                        placeholder="Phone" />
 
-                    <!-- <label class="lab1">email : </label> -->
                     <input type="email" name="email" class="form-control" class="lab2" maxlength="254" id="id_email"
-                        placeholder="email">
-                    <!-- <br> -->
+                        placeholder="Email" />
 
-                    <!-- <label class="lab1">username : </label> -->
                     <input type="text" name="username" class="form-control" class="lab2" maxlength="150" required
-                        id="id_username" placeholder="username">
-                    <!-- <br> -->
+                        id="id_username" placeholder="Username" />
 
-                    <!-- <label class="lab1">password : </label> -->
                     <input type="password" class="form-control" name="password" class="lab2" required id="id_password"
-                        placeholder="password">
-                    <!-- <br> -->
-
-                    <!-- <label class="lab1">profile_pic : </label> -->
-                    <!-- <input type="file" name="profile_pic" class="form-control" class="lab2" accept="image/*"
-                        id="id_profile_pic" placeholder="profile_pic"> -->
-
-
-                    <!-- <br> -->
+                        placeholder="Password" />
                 </div>
 
-                <button type="submit" class="btn btn-outline-success vip" value="Register">SignUP</button>
-
+                <button type="submit" class="btn btn-outline-success vip" value="Register">
+                    Register
+                </button>
             </div>
-
         </form>
 
-        <a href="{% url 'signin' %}"><button type="submit" class="btn btn-outline-primary" value="">SignIN
-                here</button></a><br />
-        <a href="{% url 'reset_password' %}"><button type="submit" class="btn btn-outline-danger" value="">Forgot
-                Password</button></a><br />
-
+        <a href="{% url 'signin' %}"><button type="submit" class="btn btn-outline-primary" value="">
+                Login here
+            </button></a><br />
+        <a href="{% url 'reset_password' %}"><button type="submit" class="btn btn-outline-danger" value="">
+                Forgot Password
+            </button></a><br />
     </center>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

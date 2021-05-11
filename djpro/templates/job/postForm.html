@@ -81,11 +81,20 @@
       <datalist id="position_list">
         <option value="Web Designer">Web Designer</option>
         <option value="Web Developer">Web Developer</option>
-        <option value="Android Devloper">Android Devloper</option>
-        <option value="Software Eng.">Software Eng.</option>
-        <option value="Data Analysit">Data Analysit</option>
-        <option value="Big Data Devloper">Big Data Devloper</option>
-        <option value="Java Devloper">Java Devloper</option>
+        <option value="Android Developer">Android Developer</option>
+        <option value="IOS Developer">IOS Developer</option>
+        <option value="Software Engineer">Software Engineer</option>
+        <option value="DevOps Developer">DevOps Developer</option>
+        <option value="Software Developer">Software Developer</option>
+        <option value="Junior Software Developer">Junior Software Developer</option>
+        <option value="Intern Software Developer">Intern Software Developer </option>
+        <option value="Artificial intelligence/Machine Learning Engineer">Artificial intelligence/Machine
+          Learning Engineer</option>
+        <option value="Big Data Engineer">Big Data Engineer</option>
+        <option value=".NET Developer">.NET Developer </option>
+        <option value="Data Engineer">Data Engineer</option>
+        <option value="Big Data Developer">Big Data Developer</option>
+        <option value="Java Developer">Java Developer</option>
       </datalist>
     </tr>
     <tr>
@@ -98,12 +107,27 @@
       <td>
         <datalist id="location_list">
           <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Kolkata">Kolkata</option>
           <option value="Surat">Surat</option>
           <option value="Rajkot">Rajkot</option>
           <option value="Mumbai">Mumbai</option>
           <option value="Delhi">Delhi</option>
-          <option value="Banglore">Banglore</option>
+          <option value="Bengaluru">Bengaluru</option>
           <option value="Hyderabad">Hyderabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Bhopal">Bhopal</option>
+          <option value="Jaipur">Jaipur</option>
+          <option value="New Delhi">New Delhi</option>
+          <option value="Navi Mumbai">Navi Mumbai</option>
+          <option value="Ranchi">Ranchi</option>
+          <option value="Pune">Pune</option>
+          <option value="Agra">Agra</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Indore">Indore</option>
+          <option value="Ujjain">Ujjain</option>
+          <option value="Patna">Patna</option>
+          <option value="Gandhinagar">Gandhinagar</option>
+          <option value="Chandigarh">Chandigarh</option>
         </datalist>
       </td>
       <td>
@@ -127,7 +151,9 @@
     </tr>
     <tr>
       <br />
-      <th><label for="id_min_exp">Minimum experience Required For This Job:</label></th>
+      <th>
+        <label for="id_min_exp">Minimum experience Required For This Job:</label>
+      </th>
       <td>
         <datalist id="min_exp_list">
           <option value="0-1 Years(Fresher)">0-1 Years(Fresher)</option>
@@ -135,14 +161,19 @@
           <option value="2-3 Years">2-3 Years</option>
           <option value="3-4 Years">3-4 Years</option>
           <option value="4-5 Years">4-5 Years</option>
-          <option value="5+ Years">5+ Years</option>
+          <option value="5-6 Years">5-6 Years</option>
+          <option value="6-7 Years">6-7 Years</option>
+          <option value="7-8 Years">7-8 Years</option>
+          <option value="8-9 Years">8-9 Years</option>
+          <option value="9-10 Years">9-10 Years</option>
+          <option value="10+ Years">10+ Years</option>
         </datalist>
       </td>
       <td>
         <input type="text" name="min_exp" maxlength="20" id="id_min_exp" list="min_exp_list" />
       </td>
     </tr>
-    <br>
+    <br />
     <tr>
       <th><label for="id_qualification">Qualification For Job:</label></th>
       <td>
@@ -162,45 +193,41 @@
 
     <tr>
       <br />
-      <th><label for="id_category">Category:</label></th>
+      <!-- <th><label for="id_category">Category:</label></th> -->
       <td>
         <select name="category" class="form-control" maxlength="20" id="id_category">
           <option value="Web Design">Web Design</option>
-
           <option value="Web Devlopment">Web Devlopment</option>
-
           <option value="AR/VR">AR/VR</option>
-
           <option value="ML/AI">ML/AI</option>
-
           <option value="CyberSecurity">CyberSecurity</option>
-
           <option value="IOT - RPA">IOT - RPA</option>
-
           <option value="App Devlopment">App Devlopment</option>
         </select><input type="hidden" name="person" class="form-control" value="" id="elder" />
       </td>
     </tr>
     <tr>
       <br />
-      <p>
-        Please Specify a URL or EMAIL for further communication for Employee.
-      </p>
-      <p>In your given choices Employee can submit/mail you his/her resume.</p>
-      <p>Here you can Specify mail id, form link, your website link, etc.</p>
-      <p>where they can contact with you if they are intrested in this job.</p>
+
+
+      <p> Please Specify a URL or EMAIL for further communication for the Employee.
+        In your given choices Employee can submit/mail you his/her resume.</p>
+      <p> Here you can Specify your mail id, form link, website link, etc.
+        where they can contact you if they are interested in this job.</p>
 
       <td>
         <input type="text" name="resume" maxlength="200" id="id_resume" />
       </td>
     </tr>
-    <input type="radio" id="male" name="gender" value="male" onclick="fun1()" />
+
+    <input type="radio" id="male" name="gender" value="male" onclick="fun1()">
     <label for="male">Email</label>
 
-    <input type="radio" id="female" name="gender" value="female" onclick="fun2()" />
+    <input type="radio" id="female" name="gender" value="female" onclick="fun2()">
     <label for="female">URL</label><br />
+
     <input type="email" value="" id="hidethisemail" placeholder="Enter Email" />
-    <input type="url" value="" id="hidethisurl" placeholder="Enter URL" />
+    <input type="url" value="" id="hidethisurl" placeholder="Enter URL" /><br>
 
     <button type="submit" value="Post" onclick="done()">POST</button>
   </form>
@@ -213,15 +240,16 @@
       var otherval = document.getElementById("id_position_select").value;
       if (otherval == "other") {
         document.getElementById("id_position").style.display = "block";
-      }
-      else {
+      } else {
         document.getElementById("id_position").style.display = "none";
       }
     }
 
     function funother2() {
+
       var otherval = document.getElementById("id_location_select").value;
       console.log(otherval);
+
       if (otherval == "other") {
         console.log("block");
         document.getElementById("id_location").style.display = "block";
@@ -239,154 +267,220 @@
 
     function fun2() {
       document.getElementById("hidethisurl").style.display = "block";
-      document.getElementById("hidethisemail").style.display = "none";
+      document.getElementById("hidethisemail").style.display = "none"
     }
 
     function done() {
-      if (document.getElementById("hidethisemail").style.display == "block")
+      if (document.getElementById("hidethisemail").style.display == "block") {
         document.getElementById("id_resume").value = document.getElementById("hidethisemail").value;
-      else
-        document.getElementById("id_resume").value = document.getElementById("hidethisurl").value;
-
-      // if (document.getElementById("id_position").style.display == "none")
-      //   // document.getElementById("id_position").value = document.getElementById("id_other1").value;
-      //   // else
-      //   document.getElementById("id_position").value = document.getElementById("id_position_select").value;
-
-      // if (document.getElementById("id_location").style.display == "none")
-      //   // document.getElementById("id_location").value = document.getElementById("id_other2").value;
-      //   // else
-      //   document.getElementById("id_location").value = document.getElementById("id_location_select").value;
-
-      // document.getElementById("id_min_exp").value = document.getElementById("id_min_exp_select").value;
+      }
+      else { document.getElementById("id_resume").value = document.getElementById("hidethisurl").value; }
     }
   </script>
 </div>
 
 <style type="text/css">
-  #id_other1,
-  #id_other2,
-  #id_resume {
-    display: none;
-  }
-
+  #id_category,
+  #id_resume,
+  #hidethisemail,
   #hidethisurl {
     display: none;
   }
 
-  #hidethisemail {
-    display: none;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 
   body {
-    background: #f5f5f5;
-    font-family: sans-serif;
-    color: rgb(255, 255, 255);
+    font-family: "Nunito", sans-serif;
+    color: #384047;
   }
 
-  .regform {
-    width: 800px;
-    background-color: #1a2238;
-    margin: auto;
-    color: #ffffff;
-    padding: 10px 0px 10px 0px;
-    text-align: center;
-    border-radius: 15px 15px 15px 15px;
-  }
-
-  .main {
-    background-color: #1a2238;
-    width: 800px;
-    margin: auto;
-    border-radius: 15px 15px 15px 15px;
-  }
-
-  #name {
+  table {
+    border-collapse: collapse;
     width: 100%;
-    height: 100px;
+    font-size: 15px;
+    margin-top: 50px;
+    border-radius: 3px;
   }
 
-  .name {
-    margin-left: 25px;
+  tr {
+    background-color: #f5f5f5;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .clickable-row:hover {
+    background-color: #cdcdcd;
+  }
+
+  .head {
+    color: white;
+    background: green;
+  }
+
+  form {
+    max-width: 300px;
+    margin: 10px auto;
     margin-top: 30px;
-    width: 125px;
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
   }
 
-  .checkBox {
-    position: relative;
-    left: 200px;
-    top: -37px;
-    line-height: 40px;
-    width: 480px;
-    border-radius: 6px;
-    padding: 0 22px;
+  h1 {
+    font-size: 35px;
+    margin: 0 0 20px 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
     font-size: 16px;
-    color: #555;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 5px;
   }
 
-  .option {
-    position: relative;
-    left: 200px;
-    top: -37px;
-    line-height: 40px;
-    width: 480px;
-    height: 40px;
-    border-radius: 6px;
-    padding: 0 22px;
-    font-size: 16px;
-    color: #555;
-    outline: none;
-    overflow: hidden;
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 4px 8px 0;
   }
 
-  .option option {
-    font-size: 18px;
-  }
-
-  #coustomer {
-    margin-left: 25px;
-    color: white;
-    font-size: 18px;
+  select {
+    padding: 6px;
+    height: 32px;
+    border-radius: 2px;
   }
 
   button {
-    background-color: #ff6a3d;
-    display: block;
-    /* margin: 20px 0px 0px 20px; */
+    align: center;
+    padding: 10px 30px 10px 30px;
+    color: #fff;
+    background-color: #ff8d1e;
+    font-size: 18px;
     text-align: center;
-    border-radius: 12px;
-    border: 2px solid #ff6a3d;
-    padding: 14px 110px;
-    outline: none;
-    color: white;
-    cursor: pointer;
-    transition: 0.25px;
+    font-style: normal;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid #ff8d1e;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+    margin-left: 25%;
   }
 
   button:hover {
-    background-color: #f4db7d;
+    color: #ff8d1e;
+    background-color: black;
+  }
+
+  .btnSub {
+    padding: 10px 30px 10px 30px;
+    color: #fff;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+    background: -webkit-linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    background: -moz-linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    background: linear-gradient(to right, #019e35 0%, #02e64d 100%);
+  }
+
+  .btnSub:hover {
+    background: -webkit-linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    background: -moz-linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    background: linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    color: white;
+  }
+
+  .center {
+    align: center;
+    text-align: center;
+    margin: 40px;
+  }
+
+  fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
+
+  legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
+
+  .bikes {
+    margin: 70px;
+    border-radius: 3px;
+  }
+
+  .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+  }
+
+  @media screen and (min-width: 480px) {
+    form {
+      max-width: 700px;
+    }
   }
 </style>
 
-<!--end block-->
+<!--end block-- >
 
-<!--start Footer-->
-<footer class="text-muted py-4" style="background: #0d0d0d">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">© 2021 All rights reserved.</p>
-  </div>
-</footer>
-<!---end Footer-->
-
-{% endblock body %}
+            {% endblock body %}

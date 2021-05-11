@@ -1,22 +1,237 @@
-<h1>Delete Post</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-{{Object.company}}
-{{Object.position}}
-{{Object.location}}
-{{Object.salaryL}}
-{{Object.salaryH}}
-{{Object.min_exp}}
-{{Object.description}}
-{{Object.resume}}
-{{Object.category}}
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <title>Document</title>
 
-<form action="" method="POST">
+    <style>
+        hr {
+            /*dummy content*/
+            height: 6px;
+            border: none;
+            background: rgba(0, 0, 0, 0.1);
+        }
 
-    {% csrf_token %}
+        hr:last-child {
+            /*dummy content*/
+            margin-right: 60%;
+        }
 
-    are you sure want to delete this post ?
+        hr.image {
+            /*dummy content*/
+            padding-bottom: 50%;
+        }
 
-    <button type="submit">Delete</button>
-    <a href="{% url 'home' %}">Cancel</a>
+        .page {
+            padding: 2em;
+            max-width: auto;
+        }
 
-</form>
+        .Inn {
+            font-size: 13px;
+        }
+
+        .archive {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+            grid-gap: 2em;
+        }
+
+        .article {
+            padding: 1em;
+            background: rgb(0, 0, 0);
+            border-radius: 5px;
+            width: 50%;
+            font-size: 10px;
+        }
+
+        *,
+        *:before,
+        *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Nunito", sans-serif;
+            background: url(../../static/three.jpg) no-repeat;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* color: #070000; */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 40px auto;
+            margin-top: 30px;
+            padding: 15px 20px;
+            background: #f4f7f8;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 35px;
+            margin: 0 0 20px 0;
+            margin-top: 20px;
+            text-align: center;
+            color: #000000;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="datetime"],
+        input[type="email"],
+        input[type="number"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="time"],
+        input[type="url"],
+        textarea,
+        select {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            font-size: 16px;
+            height: auto;
+            margin: 0;
+            outline: 0;
+            padding: 10px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #ffffff;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+            margin-bottom: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 0 4px 8px 0;
+        }
+
+        select {
+            padding: 6px;
+            height: 32px;
+            border-radius: 2px;
+        }
+
+        .btnX {
+            align: center;
+            padding: 8px 28px 8px 28px;
+            color: #fff;
+            background-color: #ff8d1e;
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            border-radius: 5px;
+            width: 50%;
+            border: 1px solid #ff8d1e;
+            border-width: 1px 1px 3px;
+            box-shadow: 0 -1px 0 rgba(255, 255, 255) inset;
+            margin-bottom: 10px;
+            margin-left: 25%;
+        }
+
+        .btnX:hover {
+            color: black;
+        }
+
+        fieldset {
+            margin-bottom: 30px;
+            border: none;
+        }
+
+        legend {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        label.light {
+            font-weight: 300;
+            display: inline;
+        }
+
+        .bikes {
+            margin-top: 0px;
+        }
+
+        .number {
+            background-color: #ff8d1e;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-right: 4px;
+            line-height: 30px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255, 255, 255);
+            border-radius: 100%;
+        }
+
+        @media screen and (min-width: 480px) {
+            form {
+                max-width: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Delete Post</h1>
+
+
+    <center>
+
+        <article class="article" style="color: white;">
+            {% comment %}
+            <hr class="image" />
+            {% endcomment %}
+            <div class="Inn">
+                <a style="font-size: 25px;"><strong>Company :</strong></a>
+                <a style="font-size: 30px;">{{Object.company}}</a>
+                <hr />
+                <a style="font-size: 25px;"><strong>Field :</strong></a>
+                <a style="font-size: 30px;">{{Object.category}}</a>
+                <br /><br />
+                <a style="font-size: 25px;"><strong>Location :</strong></a>
+                <a style="font-size: 30px;">{{Object.location}}</a>
+                <br /><br />
+            </div>
+        </article>
+    </center>
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        <center>Are you sure want to delete this post? <br><br>
+
+            <button type="submit" class="btn btn-outline-danger" style="margin-right: 20px;">Delete</button>
+            <a href="{% url 'home' %}"><button type="submit" class="btn btn-outline-success">Cancel</button> </a>
+        </center>
+    </form>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+
+</html>

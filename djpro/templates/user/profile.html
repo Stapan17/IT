@@ -10,21 +10,12 @@
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             {% if current_user_info.profile_pic %}
-            <img
-              src="{{current_user_info.profile_pic.url}}"
-              alt="..."
-              width="130"
-              class="rounded mb-2 img-thumbnail"
-            />
+            <img src="{{current_user_info.profile_pic.url}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" />
             {% endif %}
             <div>
               {% if request.user.id == current_user.id %}
-              <a
-                href="{% url 'update' current_user.id %}"
-                class="btn btn-outline-dark btn-sm btn-block"
-                style="margin-top: 10px"
-                >Edit profile</a
-              >
+              <a href="{% url 'update' current_user.id %}" class="btn btn-outline-dark btn-sm btn-block"
+                style="margin-top: 10px">Edit profile</a>
               {% endif %}
             </div>
 
@@ -33,9 +24,6 @@
 
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0">{{ current_user.username }}</h4>
-            <p class="small mb-4">
-              <i class="fas fa-map-marker-alt mr-2">location</i>
-            </p>
           </div>
         </div>
       </div>
@@ -43,16 +31,9 @@
       <div class="bg-light p-4 d-flex justify-content-end text-center">
         <ul class="list-inline mb-0">
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">XXX</h5>
+            <h5 class="font-weight-bold mb-0 d-block">{{var}}</h5>
             <small class="text-muted">
-              <i class="fas fa-image mr-1"></i>Company</small
-            >
-          </li>
-          <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">xxx</h5>
-            <small class="text-muted">
-              <i class="fas fa-user mr-1"></i>Jobs Posted</small
-            >
+              <i class="fas fa-user mr-1"></i>Jobs Posted</small>
           </li>
         </ul>
       </div>
@@ -72,19 +53,13 @@
           {% endif %}
         </div>
       </div>
-      <div class="py-4 px-4">
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <h5 class="mb-0">Recent Job Post</h5>
-          <button
-            type="submit"
-            onclick="window.location.href='{% url 'manage_post' current_user.id %}';"
-          >
-            Show All
+      <center>
+        <div class="py-4 px-4">
+          <button type="submit" onclick="window.location.href='{% url 'manage_post' current_user.id %}';">
+            Show all your posts
           </button>
         </div>
-
-        {% comment %} -----users post------ {% endcomment %}
-      </div>
+      </center>
     </div>
 
     <style>
@@ -143,11 +118,7 @@
     <!-- current_user -->
     {% comment %} {% if current_user_info.profile_pic %}
 
-    <img
-      src="{{current_user_info.profile_pic.url}}"
-      style="height: 50px"
-      alt=""
-    />
+    <img src="{{current_user_info.profile_pic.url}}" style="height: 50px" alt="" />
     <br />
 
     {% endif %}
@@ -168,9 +139,4 @@
   </div>
 </div>
 
-<footer class="text-muted py-5" style="background: #0d0d0d">
-  <div class="container">
-    <p class="mb-0">© 2021 All rights reserved.</p>
-  </div>
-</footer>
 {% endblock body %}

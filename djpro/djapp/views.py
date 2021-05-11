@@ -4,6 +4,7 @@ from .models import userInfo, User, jobPost, contactUS
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import smtplib
+from .filters import job_filter
 
 
 def base(request):
@@ -12,17 +13,23 @@ def base(request):
 
 def home(request):
 
-    objects = jobPost.objects.all().order_by('-id')
+    obj = jobPost.objects.all().order_by('-id')
     context = {}
+    jobs = jobPost.objects.all()
+    print(jobs)
+    objects = job_filter(request.GET, queryset=jobs)
+
+    # bikes = Bike.objects.filter(bike_available="Available")
+    # bikes_filter = bike_filter(request.GET, queryset=bikes)
 
     if request.user.is_authenticated:
         current_user = request.user
         current_user_info = userInfo.objects.get(member_id=current_user.id)
         context = {'current_user': current_user,
-                   'current_user_info': current_user_info, 'objects': objects}
+                   'current_user_info': current_user_info, 'filter': objects}
 
     else:
-        context = {'objects': objects}
+        context = {'filter': objects}
 
     return render(request, 'home.html', context)
 
@@ -90,8 +97,10 @@ def profile(request, pk):
     current_user = User.objects.get(id=pk)
     current_user_info = userInfo.objects.get(member_id=pk)
 
+    var = jobPost.objects.filter(person_id=current_user).count()
+
     context = {'current_user': current_user,
-               'current_user_info': current_user_info}
+               'current_user_info': current_user_info, 'var': var}
     return render(request, 'user/profile.html', context)
 
 

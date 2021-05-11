@@ -5,53 +5,56 @@
 {% block body %}
 
 <div class="heading">
-    <h1>All your posts are shown below</h1>
+    <h1 style="margin-top: 10px;">All your posts are shown below</h1>
 </div>
 
 {% comment %} <h2 class="name my-5">All Your Posts are Shown Below</h2> {% endcomment %}
 
-{% for curr_post in curr_user_post %}
+<div class="MB">
+    <main>
+        {% for curr_post in curr_user_post %}
 
 
-<div class="album py-5 my-5">
-    <center>
-        <div class="col" style="width: 70%; text-align: left;">
-            <div class="card">
-                <div class="card-body shadow-sm" style="color: white;">
-                    <p class="card-text">
-                        Company: {{curr_post.company}}
-                    </p>
-                    <p class="card-text">
-                        Field: {{curr_post.category}}
-                    </p>
-                    <p class="card-text">
-                        Location: {{curr_post.location}}
-                    </p>
-                    <p class="card-text">
+        <div class="album py-5 my-5">
+            <center>
+                <div class="col" style="width: 70%; text-align: left;">
+                    <div class="card">
+                        <div class="card-body shadow-sm" style="color: white;">
+                            <p class="card-text">
+                                Company: {{curr_post.company}}
+                            </p>
+                            <p class="card-text">
+                                Field: {{curr_post.category}}
+                            </p>
+                            <p class="card-text">
+                                Location: {{curr_post.location}}
+                            </p>
+                            <p class="card-text">
 
-                    </p>
+                            </p>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="{% url 'detail_post' curr_post.id %}"><button type="button"
-                                    class="btn btn-sm btn-success">
-                                    View
-                                </button></a>
-                            <a href="{% url 'update_post' curr_post.id %}">
-                                <button type="button" class="bn btn btn-sm btn-primary">
-                                    Update
-                                </button></a>
-                            <a href="{% url 'delete_post' curr_post.id %}">
-                                <button type="button" class="btn btn-sm btn-danger">
-                                    Delete
-                                </button></a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'detail_post' curr_post.id %}"><button type="button"
+                                            class="btn btn-sm">
+                                            View
+                                        </button></a>
+                                    <!-- <a href="{% url 'update_post' curr_post.id %}">
+                                        <button type="button" class="bn btn btn-sm ">
+                                            Update
+                                        </button></a> -->
+                                    <a href="{% url 'delete_post' curr_post.id %}">
+                                        <button type="button" class="btn btn-sm " style="margin-left: 15px;">
+                                            Delete
+                                        </button></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-    </center>
+            </center>
+        </div>
+    </main>
 </div>
-</main>
 
 
 
@@ -69,7 +72,7 @@
     .main {
         background-color: rgb(0, 0, 0, 0.2);
         width: 800px;
-        margin: auto;
+
         border-radius: 15px 15px 15px 15px;
     }
 

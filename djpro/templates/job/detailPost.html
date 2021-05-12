@@ -18,8 +18,7 @@
       <h2><strong>Salary (lowest):&nbsp&nbsp&nbsp</strong>{{post.salaryL}}</h2>
       <h2><strong>Salary (heighst):&nbsp&nbsp&nbsp</strong>{{post.salaryH}}</h2>
       <h2>
-        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong
-        >{{post.min_exp}}
+        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong>{{post.min_exp}}
       </h2>
       <h2>
         <strong>Job-Qualification:&nbsp&nbsp&nbsp</strong>{{post.qualification}}
@@ -27,10 +26,10 @@
       <h2>
         <strong>Job-Description:&nbsp&nbsp&nbsp</strong>{{post.description}}
       </h2>
-      <h2><strong>Catagory:&nbsp&nbsp&nbsp</strong>{{post.category}}</h2>
+      <!-- <h2><strong>Catagory:&nbsp&nbsp&nbsp</strong>{{post.category}}</h2> -->
+      <h2><strong>Submit/Mail Your Resume at: </strong>{{post.resume}}</h2>
     </ul>
 
-    <input type="submit" name="signup_submit" value="Submit Your Resume" />
   </div>
 </div>
 
@@ -55,7 +54,7 @@
     position: relative;
     margin: 5% auto;
     width: 600px;
-    height: 550px;
+    height: 650px;
     background: #fff;
     border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -110,6 +109,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
   }
+
   #sel_bike {
     display: none;
   }

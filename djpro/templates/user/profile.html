@@ -10,12 +10,21 @@
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             {% if current_user_info.profile_pic %}
-            <img src="{{current_user_info.profile_pic.url}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" />
+            <img
+              src="{{current_user_info.profile_pic.url}}"
+              alt="..."
+              width="130"
+              class="rounded mb-2 img-thumbnail"
+            />
             {% endif %}
             <div>
               {% if request.user.id == current_user.id %}
-              <a href="{% url 'update' current_user.id %}" class="btn btn-outline-dark btn-sm btn-block"
-                style="margin-top: 10px">Edit profile</a>
+              <a
+                href="{% url 'update' current_user.id %}"
+                class="btn btn-outline btn-sm btn-block"
+                style="margin-top: 10px"
+                >Edit profile</a
+              >
               {% endif %}
             </div>
 
@@ -33,7 +42,8 @@
           <li class="list-inline-item">
             <h5 class="font-weight-bold mb-0 d-block">{{var}}</h5>
             <small class="text-muted">
-              <i class="fas fa-user mr-1"></i>Jobs Posted</small>
+              <i class="fas fa-user mr-1"></i>Jobs Posted</small
+            >
           </li>
         </ul>
       </div>
@@ -55,7 +65,10 @@
       </div>
       <center>
         <div class="py-4 px-4">
-          <button type="submit" onclick="window.location.href='{% url 'manage_post' current_user.id %}';">
+          <button
+            type="submit"
+            onclick="window.location.href='{% url 'manage_post' current_user.id %}';"
+          >
             Show all your posts
           </button>
         </div>
@@ -85,9 +98,9 @@
       }
 
       body {
-        background: #654ea3;
-        background: linear-gradient(to right, #e96443, #904e95);
-        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: #ddd;
       }
 
       .btn {
@@ -118,7 +131,11 @@
     <!-- current_user -->
     {% comment %} {% if current_user_info.profile_pic %}
 
-    <img src="{{current_user_info.profile_pic.url}}" style="height: 50px" alt="" />
+    <img
+      src="{{current_user_info.profile_pic.url}}"
+      style="height: 50px"
+      alt=""
+    />
     <br />
 
     {% endif %}

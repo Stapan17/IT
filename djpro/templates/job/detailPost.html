@@ -9,14 +9,17 @@
 <div id="login-box">
   <div class="left">
     <h1><strong>Company:&nbsp</strong> {{post.company}}</h1>
+    <hr />
 
     <ul>
       <h2><strong>Location:&nbsp&nbsp&nbsp</strong>{{post.location}}</h2>
+
       <h2><strong>Position:&nbsp&nbsp&nbsp</strong>{{post.position}}</h2>
       <h2><strong>Salary (lowest):&nbsp&nbsp&nbsp</strong>{{post.salaryL}}</h2>
       <h2><strong>Salary (heighst):&nbsp&nbsp&nbsp</strong>{{post.salaryH}}</h2>
       <h2>
-        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong>{{post.min_exp}}
+        <strong>Minimum Experience Required:&nbsp&nbsp&nbsp</strong
+        >{{post.min_exp}}
       </h2>
       <h2>
         <strong>Job-Qualification:&nbsp&nbsp&nbsp</strong>{{post.qualification}}
@@ -107,11 +110,31 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
   }
+  #sel_bike {
+    display: none;
+  }
+
+  hr {
+    /*dummy content*/
+    height: 6px;
+    border: none;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  hr:last-child {
+    /*dummy content*/
+    margin-right: 60%;
+  }
+
+  hr.image {
+    /*dummy content*/
+    padding-bottom: 50%;
+  }
+
+  .page {
+    padding: 2em;
+    max-width: auto;
+  }
 </style>
 
-<footer class="text-muted py-5" style="background: #1a2238">
-  <div class="container">
-    <p class="mb-0">© 2021 All rights reserved.</p>
-  </div>
-</footer>
 {% endblock body %}

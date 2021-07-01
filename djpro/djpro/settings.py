@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +29,7 @@ SECRET_KEY = 'rw+3$0&irr+cs8+a7srxaay5a7=7#!k)6+0*^k)^d_0u6tmf4#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ojp17.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'ojp17.herokuapp.com']
 
 
 # Application definition
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'djapp',
 ]
 
@@ -79,8 +82,12 @@ WSGI_APPLICATION = 'djpro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'brs1',
+        'USER': 'soul1',
+        'PASSWORD': 'brs1',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -142,3 +149,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'YOUR EMAIL'
 EMAIL_HOST_PASSWORD = 'EMAIL PASSWORD'
 django_heroku.settings(locals())
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)

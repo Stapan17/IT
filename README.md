@@ -3,4 +3,4 @@
 
 ONLINE JOB PORTAL
 
-[Live](https://github.com/Stapan17/IT.git)
+[Live](https://online-job-portal-17.herokuapp.com/)
